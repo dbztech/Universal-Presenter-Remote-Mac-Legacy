@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0442A218E9E81B00A86738 /* DBZ_PresentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0442A018E9E81B00A86738 /* DBZ_PresentWindowController.m */; };
+		ED0442A318E9E81B00A86738 /* DBZ_PresentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0442A118E9E81B00A86738 /* DBZ_PresentWindowController.xib */; };
 		ED3F404918E9374E00366531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F404818E9374E00366531 /* Cocoa.framework */; };
 		ED3F405318E9374E00366531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3F405118E9374E00366531 /* InfoPlist.strings */; };
 		ED3F405518E9374E00366531 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F405418E9374E00366531 /* main.m */; };
@@ -31,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED04429F18E9E81B00A86738 /* DBZ_PresentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_PresentWindowController.h; sourceTree = "<group>"; };
+		ED0442A018E9E81B00A86738 /* DBZ_PresentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_PresentWindowController.m; sourceTree = "<group>"; };
+		ED0442A118E9E81B00A86738 /* DBZ_PresentWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBZ_PresentWindowController.xib; sourceTree = "<group>"; };
 		ED3F404518E9374E00366531 /* Universal Presenter Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Universal Presenter Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3F404818E9374E00366531 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ED3F404B18E9374E00366531 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -119,6 +124,9 @@
 				ED3F407C18E937AF00366531 /* Universal Presenter Remote.entitlements */,
 				ED3F405A18E9374E00366531 /* DBZ_AppDelegate.h */,
 				ED3F405B18E9374E00366531 /* DBZ_AppDelegate.m */,
+				ED04429F18E9E81B00A86738 /* DBZ_PresentWindowController.h */,
+				ED0442A018E9E81B00A86738 /* DBZ_PresentWindowController.m */,
+				ED0442A118E9E81B00A86738 /* DBZ_PresentWindowController.xib */,
 				ED3F405D18E9374E00366531 /* MainMenu.xib */,
 				ED3F406018E9374E00366531 /* Images.xcassets */,
 				ED3F404F18E9374E00366531 /* Supporting Files */,
@@ -242,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3F405318E9374E00366531 /* InfoPlist.strings in Resources */,
+				ED0442A318E9E81B00A86738 /* DBZ_PresentWindowController.xib in Resources */,
 				ED3F406118E9374E00366531 /* Images.xcassets in Resources */,
 				ED3F405918E9374E00366531 /* Credits.rtf in Resources */,
 				ED3F405F18E9374E00366531 /* MainMenu.xib in Resources */,
@@ -264,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED3F405518E9374E00366531 /* main.m in Sources */,
+				ED0442A218E9E81B00A86738 /* DBZ_PresentWindowController.m in Sources */,
 				ED3F405C18E9374E00366531 /* DBZ_AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
