@@ -7,6 +7,7 @@
 //
 
 #import "DBZ_PresentWindowController.h"
+#import "DBZ_SlideControl.h"
 
 @interface DBZ_PresentWindowController ()
 
@@ -30,4 +31,7 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
+- (IBAction)connectButton:(id)sender {
+    _connectButton.title = @"Disconnect";
+}
 @end

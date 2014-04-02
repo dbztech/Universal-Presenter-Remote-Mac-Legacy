@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED3F406518E9374E00366531"
-               BuildableName = "Universal Presenter RemoteTests.xctest"
-               BlueprintName = "Universal Presenter RemoteTests"
-               ReferencedContainer = "container:Universal Presenter Remote.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -9,5 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface DBZ_PresentWindowController : NSWindowController
+@property (weak) IBOutlet NSButton *connectButton;
 
+- (IBAction)connectButton:(id)sender;
 @end

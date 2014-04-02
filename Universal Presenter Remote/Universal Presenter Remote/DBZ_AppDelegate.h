@@ -18,10 +18,14 @@
 @property (weak) IBOutlet NSTextField *token4;
 @property (weak) IBOutlet NSTextField *token5;
 @property (weak) IBOutlet NSTextField *token6;
-- (void)textViewDidChange:(NSNotification*)notification;
-- (void)validate;
+-(void)textViewDidChange:(NSNotification*)notification;
+-(void)validate;
 
-- (IBAction)connectButton:(id)sender;
+-(IBAction)connectButton:(id)sender;
 @property (weak) IBOutlet NSButton *connectButton;
+
+-(void)incomingNotification:(NSNotification *)notification;
+-(void)checkServer;
+
 
 @end

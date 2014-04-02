@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		ED0442A218E9E81B00A86738 /* DBZ_PresentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0442A018E9E81B00A86738 /* DBZ_PresentWindowController.m */; };
 		ED0442A318E9E81B00A86738 /* DBZ_PresentWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED0442A118E9E81B00A86738 /* DBZ_PresentWindowController.xib */; };
+		ED0442A718EA02CD00A86738 /* left.scpt in Resources */ = {isa = PBXBuildFile; fileRef = ED0442A618EA02CD00A86738 /* left.scpt */; };
+		ED0442A918EA02D500A86738 /* right.scpt in Resources */ = {isa = PBXBuildFile; fileRef = ED0442A818EA02D500A86738 /* right.scpt */; };
 		ED3F404918E9374E00366531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F404818E9374E00366531 /* Cocoa.framework */; };
 		ED3F405318E9374E00366531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3F405118E9374E00366531 /* InfoPlist.strings */; };
 		ED3F405518E9374E00366531 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F405418E9374E00366531 /* main.m */; };
@@ -20,6 +22,8 @@
 		ED3F406918E9374E00366531 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3F404818E9374E00366531 /* Cocoa.framework */; };
 		ED3F407118E9374E00366531 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED3F406F18E9374E00366531 /* InfoPlist.strings */; };
 		ED3F407318E9374E00366531 /* Universal_Presenter_RemoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED3F407218E9374E00366531 /* Universal_Presenter_RemoteTests.m */; };
+		EDE7072A18EB14C5008FA12C /* DBZ_SlideControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE7072918EB14C5008FA12C /* DBZ_SlideControl.m */; };
+		EDE7072D18EB14F1008FA12C /* DBZ_ServerCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE7072C18EB14F1008FA12C /* DBZ_ServerCommunication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,8 @@
 		ED04429F18E9E81B00A86738 /* DBZ_PresentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_PresentWindowController.h; sourceTree = "<group>"; };
 		ED0442A018E9E81B00A86738 /* DBZ_PresentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_PresentWindowController.m; sourceTree = "<group>"; };
 		ED0442A118E9E81B00A86738 /* DBZ_PresentWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBZ_PresentWindowController.xib; sourceTree = "<group>"; };
+		ED0442A618EA02CD00A86738 /* left.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = left.scpt; sourceTree = "<group>"; };
+		ED0442A818EA02D500A86738 /* right.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = right.scpt; sourceTree = "<group>"; };
 		ED3F404518E9374E00366531 /* Universal Presenter Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Universal Presenter Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3F404818E9374E00366531 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ED3F404B18E9374E00366531 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -56,6 +62,10 @@
 		ED3F407018E9374E00366531 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ED3F407218E9374E00366531 /* Universal_Presenter_RemoteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Universal_Presenter_RemoteTests.m; sourceTree = "<group>"; };
 		ED3F407C18E937AF00366531 /* Universal Presenter Remote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Universal Presenter Remote.entitlements"; sourceTree = "<group>"; };
+		EDE7072818EB14C5008FA12C /* DBZ_SlideControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_SlideControl.h; sourceTree = "<group>"; };
+		EDE7072918EB14C5008FA12C /* DBZ_SlideControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_SlideControl.m; sourceTree = "<group>"; };
+		EDE7072B18EB14F1008FA12C /* DBZ_ServerCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_ServerCommunication.h; sourceTree = "<group>"; };
+		EDE7072C18EB14F1008FA12C /* DBZ_ServerCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_ServerCommunication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +136,14 @@
 				ED3F405B18E9374E00366531 /* DBZ_AppDelegate.m */,
 				ED04429F18E9E81B00A86738 /* DBZ_PresentWindowController.h */,
 				ED0442A018E9E81B00A86738 /* DBZ_PresentWindowController.m */,
+				ED0442A618EA02CD00A86738 /* left.scpt */,
+				ED0442A818EA02D500A86738 /* right.scpt */,
 				ED0442A118E9E81B00A86738 /* DBZ_PresentWindowController.xib */,
 				ED3F405D18E9374E00366531 /* MainMenu.xib */,
+				EDE7072818EB14C5008FA12C /* DBZ_SlideControl.h */,
+				EDE7072918EB14C5008FA12C /* DBZ_SlideControl.m */,
+				EDE7072B18EB14F1008FA12C /* DBZ_ServerCommunication.h */,
+				EDE7072C18EB14F1008FA12C /* DBZ_ServerCommunication.m */,
 				ED3F406018E9374E00366531 /* Images.xcassets */,
 				ED3F404F18E9374E00366531 /* Supporting Files */,
 			);
@@ -249,11 +265,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED0442A918EA02D500A86738 /* right.scpt in Resources */,
 				ED3F405318E9374E00366531 /* InfoPlist.strings in Resources */,
 				ED0442A318E9E81B00A86738 /* DBZ_PresentWindowController.xib in Resources */,
 				ED3F406118E9374E00366531 /* Images.xcassets in Resources */,
 				ED3F405918E9374E00366531 /* Credits.rtf in Resources */,
 				ED3F405F18E9374E00366531 /* MainMenu.xib in Resources */,
+				ED0442A718EA02CD00A86738 /* left.scpt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +292,9 @@
 			files = (
 				ED3F405518E9374E00366531 /* main.m in Sources */,
 				ED0442A218E9E81B00A86738 /* DBZ_PresentWindowController.m in Sources */,
+				EDE7072A18EB14C5008FA12C /* DBZ_SlideControl.m in Sources */,
 				ED3F405C18E9374E00366531 /* DBZ_AppDelegate.m in Sources */,
+				EDE7072D18EB14F1008FA12C /* DBZ_ServerCommunication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,13 +8,23 @@
 
 #import "DBZ_AppDelegate.h"
 #import "DBZ_PresentWindowController.h"
+#import "DBZ_ServerCommunication.h"
 
 @implementation DBZ_AppDelegate
 
 DBZ_PresentWindowController *presentWindow;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)Notification
+-(void)applicationDidFinishLaunching:(NSNotification *)Notification
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ServerResponse" object:nil];
+    
+    
+    [DBZ_ServerCommunication setupUid];
+    [DBZ_ServerCommunication checkStatus];
+    
+    NSTimer *checkServerTimer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkServer:) userInfo:nil repeats:YES];
+    
+    
     presentWindow = [[DBZ_PresentWindowController alloc] initWithWindowNibName:@"DBZ_PresentWindowController"];
     [_token1 becomeFirstResponder];
     // Insert code here to initialize your application
@@ -24,6 +34,11 @@ DBZ_PresentWindowController *presentWindow;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:NSControlTextDidChangeNotification object:_token4];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:NSControlTextDidChangeNotification object:_token5];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:NSControlTextDidChangeNotification object:_token6];
+}
+
+-(void) incomingNotification:(NSNotification *)notification {
+    NSMutableArray *incoming = [notification object];
+    [DBZ_ServerCommunication processResponse:incoming];
 }
 
 - (void)textViewDidChange:(NSNotification*)notification {
@@ -48,7 +63,7 @@ DBZ_PresentWindowController *presentWindow;
     }
 }
 
-- (void)validate {
+-(void)validate {
     if (![[_token1 stringValue] isEqualToString:@""] && ![[_token2 stringValue] isEqualToString:@""] && ![[_token3 stringValue] isEqualToString:@""] && ![[_token4 stringValue] isEqualToString:@""] && ![[_token5 stringValue] isEqualToString:@""] && ![[_token6 stringValue] isEqualToString:@""]) {
         _connectButton.enabled = YES;
     } else {
@@ -56,7 +71,12 @@ DBZ_PresentWindowController *presentWindow;
     }
 }
 
-- (IBAction)connectButton:(id)sender {
+-(IBAction)connectButton:(id)sender {
+    [_window orderOut:self];
     [presentWindow showWindow:self];
+}
+
+-(void)checkServer:(NSTimer*) timer {
+    [DBZ_ServerCommunication checkStatus];
 }
 @end
