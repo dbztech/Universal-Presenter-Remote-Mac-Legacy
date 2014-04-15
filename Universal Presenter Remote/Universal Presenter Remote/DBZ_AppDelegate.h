@@ -2,7 +2,7 @@
 //  DBZ_AppDelegate.h
 //  Universal Presenter Remote
 //
-//  Created by Brendan Boyle on 3/31/14.
+//  Created by Brendan Boyle on 4/11/14.
 //  Copyright (c) 2014 DBZ Technology. All rights reserved.
 //
 
@@ -18,14 +18,22 @@
 @property (weak) IBOutlet NSTextField *token4;
 @property (weak) IBOutlet NSTextField *token5;
 @property (weak) IBOutlet NSTextField *token6;
--(void)textViewDidChange:(NSNotification*)notification;
--(void)validate;
-
--(IBAction)connectButton:(id)sender;
+@property (weak) IBOutlet NSTextField *tokenLabel;
+@property (weak) IBOutlet NSButton *presentButton;
 @property (weak) IBOutlet NSButton *connectButton;
 
+
+-(IBAction)presentButton:(id)sender;
+-(IBAction)connectButton:(id)sender;
+
+-(void)textViewDidChange:(NSNotification*)notification;
+-(void)validate;
 -(void)incomingNotification:(NSNotification *)notification;
--(void)checkServer;
+-(void)updateInterface:(NSNotification*)notification;
+-(void)joinSession:(NSNotification*)notification;
+
+
+
 
 
 @end

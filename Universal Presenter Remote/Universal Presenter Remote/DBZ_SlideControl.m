@@ -16,19 +16,19 @@
         NSConditionLock *lock = [[NSConditionLock alloc] initWithCondition:0];
         NSURL *script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"nil" ofType:@"scpt"]];
         
-    switch (action) {
-        case 0:
-            script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
-            break;
-        case 1:
-            script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"right" ofType:@"scpt"]];
-            break;
-        case 2:
-            script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
-            break;
-        default:
-            break;
-    }
+        switch (action) {
+            case 0:
+                script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
+                break;
+            case 1:
+                script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"right" ofType:@"scpt"]];
+                break;
+            case 2:
+                script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
+                break;
+            default:
+                break;
+        }
         for (int i=0; i<1; i++) {
             NSError *error;
             NSUserAppleScriptTask *task = [[NSUserAppleScriptTask alloc] initWithURL:script error:&error];

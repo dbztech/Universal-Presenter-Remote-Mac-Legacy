@@ -2,7 +2,7 @@
 //  DBZ_SlideControl.h
 //  Universal Presenter Remote
 //
-//  Created by Brendan Boyle on 4/1/14.
+//  Created by Brendan Boyle on 4/11/14.
 //  Copyright (c) 2014 DBZ Technology. All rights reserved.
 //
 

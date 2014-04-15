@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED3F404418E9374D00366531"
+               BlueprintIdentifier = "ED36A9A418F8702F001247AB"
                BuildableName = "Universal Presenter Remote.app"
                BlueprintName = "Universal Presenter Remote"
                ReferencedContainer = "container:Universal Presenter Remote.xcodeproj">
@@ -28,11 +28,21 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ED36A9C518F8702F001247AB"
+               BuildableName = "Universal Presenter RemoteTests.xctest"
+               BlueprintName = "Universal Presenter RemoteTests"
+               ReferencedContainer = "container:Universal Presenter Remote.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED3F404418E9374D00366531"
+            BlueprintIdentifier = "ED36A9A418F8702F001247AB"
             BuildableName = "Universal Presenter Remote.app"
             BlueprintName = "Universal Presenter Remote"
             ReferencedContainer = "container:Universal Presenter Remote.xcodeproj">
@@ -51,7 +61,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED3F404418E9374D00366531"
+            BlueprintIdentifier = "ED36A9A418F8702F001247AB"
             BuildableName = "Universal Presenter Remote.app"
             BlueprintName = "Universal Presenter Remote"
             ReferencedContainer = "container:Universal Presenter Remote.xcodeproj">
@@ -69,7 +79,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "ED3F404418E9374D00366531"
+            BlueprintIdentifier = "ED36A9A418F8702F001247AB"
             BuildableName = "Universal Presenter Remote.app"
             BlueprintName = "Universal Presenter Remote"
             ReferencedContainer = "container:Universal Presenter Remote.xcodeproj">

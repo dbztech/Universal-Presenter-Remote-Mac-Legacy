@@ -1,5 +1,5 @@
 //
-//  main.m
+//  DBZ_ConnectView.h
 //  Universal Presenter Remote
 //
 //  Created by Brendan Boyle on 4/11/14.
@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-int main(int argc, const char * argv[])
-{
-    return NSApplicationMain(argc, argv);
-}
+@interface DBZ_ConnectView : NSWindowController
+
+@end

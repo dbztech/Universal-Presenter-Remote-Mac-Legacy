@@ -1,19 +1,18 @@
 //
-//  DBZ_PresentWindowController.m
+//  DBZ_ConnectView.m
 //  Universal Presenter Remote
 //
-//  Created by Brendan Boyle on 3/31/14.
+//  Created by Brendan Boyle on 4/11/14.
 //  Copyright (c) 2014 DBZ Technology. All rights reserved.
 //
 
-#import "DBZ_PresentWindowController.h"
-#import "DBZ_SlideControl.h"
+#import "DBZ_ConnectView.h"
 
-@interface DBZ_PresentWindowController ()
+@interface DBZ_ConnectView ()
 
 @end
 
-@implementation DBZ_PresentWindowController
+@implementation DBZ_ConnectView
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -31,7 +30,4 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
-- (IBAction)connectButton:(id)sender {
-    _connectButton.title = @"Disconnect";
-}
 @end

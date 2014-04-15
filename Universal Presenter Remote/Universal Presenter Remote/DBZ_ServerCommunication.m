@@ -2,7 +2,7 @@
 //  DBZ_ServerCommunication.m
 //  Universal Presenter Remote
 //
-//  Created by Brendan Boyle on 4/1/14.
+//  Created by Brendan Boyle on 4/11/14.
 //  Copyright (c) 2014 DBZ Technology. All rights reserved.
 //
 
@@ -11,13 +11,14 @@
 
 @implementation DBZ_ServerCommunication
 
-static NSString *serverAddress = @"http://localhost";
-static int uid = 0;
-static int temptoken = 0;
+static NSString *serverAddress = @"http://upr.dbztech.com";
+static int uid = 10;
+static int temptoken = 10;
 static int controlmode = 0;
 static int token = 0;
 static bool enabled = NO;
 static bool serverAvailable = NO;
+static NSTimer *timer;
 
 +(NSString*)serverAddress { return  serverAddress;}
 +(int)uid { return  uid;}
@@ -27,15 +28,15 @@ static bool serverAvailable = NO;
 +(bool)enabled { return  enabled;}
 +(bool)serverAvailable { return  serverAvailable;}
 
-+(void)getResponse:(NSString*)page withToken:(NSInteger*)requestToken withHoldfor:(NSInteger*)holdfor {
++(void)getResponse:(NSString*)page withToken:(int*)requestToken withHoldfor:(bool)holdfor {
     __block NSString *result;
     NSString *strURL= [NSString stringWithFormat:@"%@/%@", serverAddress, page];
     if (requestToken != nil) {
         strURL = [NSString stringWithFormat:@"%@?token=%d", strURL, (int)requestToken];
     }
     
-    if (holdfor != nil) {
-        strURL = [NSString stringWithFormat:@"%@&holdfor=%d", strURL, (int)holdfor];
+    if (holdfor) {
+        strURL = [NSString stringWithFormat:@"%@&holdfor=%d", strURL, uid];
     }
     
     NSLog(strURL);
@@ -50,8 +51,6 @@ static bool serverAvailable = NO;
          result = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
          
          NSMutableArray *notify = [NSMutableArray arrayWithObjects:page, result,response, nil];
-         
-         [NSNotificationCenter defaultCenter];
          NSNotification* notification = [NSNotification notificationWithName:@"ServerResponse" object:notify];
          [[NSNotificationCenter defaultCenter] postNotification:notification];
          
@@ -61,8 +60,8 @@ static bool serverAvailable = NO;
 
 +(void)processResponse:(NSMutableArray*)webResponse {
     // The one we want to switch on
-    NSArray *items = @[@"Alive", @"NewSession", @"TempSession"];
-    int item = [items indexOfObject:[webResponse objectAtIndex:0]];
+    NSArray *items = @[@"Alive", @"NewSession", @"TempSession", @"JoinSession"];
+    NSInteger item = [items indexOfObject:[webResponse objectAtIndex:0]];
     switch (item) {
         case 0:
             // Alive
@@ -76,6 +75,10 @@ static bool serverAvailable = NO;
             // TempSession
             [self checkTokenCallback:[webResponse objectAtIndex:1]];
             break;
+        case 3:
+            // JoinSession
+            [self joinSessionCallback:[webResponse objectAtIndex:1]];
+            break;
         default:
             break;
     }
@@ -87,40 +90,77 @@ static bool serverAvailable = NO;
 }
 
 +(void)checkStatus {
-    [self getResponse:@"Alive" withToken:nil withHoldfor:nil];
+    [self getResponse:@"Alive" withToken:nil withHoldfor:NO];
 }
 
 +(void)checkStatusCallback:(NSString *)response {
     if ([response isEqualToString:@"Ready"]) {
         NSLog(@"Alive!");
         serverAvailable = YES;
-        [self checkToken];
+        [self checkToken:nil];
         
     } else {
         NSLog(@"Dead :(");
         serverAvailable = NO;
+        controlmode = 0;
     }
 }
 
-+(void)checkToken {
-    [self getResponse:@"TempSession" withToken:(NSInteger*)temptoken withHoldfor:(NSInteger*)uid];
++(void)checkToken:(NSTimer *)timer {
+    int *sendtoken = temptoken;
+    [self getResponse:@"TempSession" withToken:sendtoken withHoldfor:YES];
 }
 
 +(void)checkTokenCallback:(NSString*)response {
     int r = [response intValue];
     controlmode = r;
-    if (controlmode == 0) {
-        temptoken = 0;
+    switch (controlmode) {
+        case 0:
+            [timer invalidate];
+            timer = nil;
+            temptoken = 0;
+            break;
+        case 1:
+            timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkToken:) userInfo:nil repeats:NO];
+            break;
+        case 2:
+            //[self checkToken];
+            break;
+            
+        default:
+            break;
     }
     if (temptoken == 0) {
-        [self getResponse:@"NewSession" withToken:nil withHoldfor:nil];
+        [self getResponse:@"NewSession" withToken:nil withHoldfor:NO];
     }
+    [self updateInterface];
 }
 
 +(void)newTokenCallback:(NSString*)response {
-    if (temptoken == 0) {
-        NSInteger r = [response intValue];
-        temptoken = r;
+    int r = [response intValue];
+    temptoken = r;
+    [self checkToken:nil];
+}
+
++(void)updateInterface {
+    NSNotification* notification = [NSNotification notificationWithName:@"UpdateInterface" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
+}
+
++(void)joinSession:(int)sendtoken {
+    token = sendtoken;
+    [self getResponse:@"JoinSession" withToken:sendtoken withHoldfor:NO];
+}
+
++(void)joinSessionCallback:(NSString *)response {
+    if ([response integerValue] > 0) {
+        NSNotification* notification = [NSNotification notificationWithName:@"JoinSession" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        uid = [response intValue];
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"The token you entered was invalid, please try again"];
+        [alert runModal];
     }
 }
 
@@ -158,7 +198,7 @@ static bool serverAvailable = NO;
  */
 
 /*
-
+ 
  public static bool sendCommand(string command)
  {
  string response = getResponse(command + "?token=" + token + "&holdfor=" + uid);

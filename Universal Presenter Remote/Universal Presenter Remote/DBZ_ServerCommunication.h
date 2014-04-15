@@ -2,7 +2,7 @@
 //  DBZ_ServerCommunication.h
 //  Universal Presenter Remote
 //
-//  Created by Brendan Boyle on 4/1/14.
+//  Created by Brendan Boyle on 4/11/14.
 //  Copyright (c) 2014 DBZ Technology. All rights reserved.
 //
 
@@ -19,13 +19,16 @@
 +(bool)enabled;
 +(bool)serverAvailable;
 
-+(void)getResponse:(NSString*)page withToken:(NSInteger*)requestToken withHoldfor:(NSInteger*)holdfor;
++(void)getResponse:(NSString*)page withToken:(int*)requestToken withHoldfor:(bool)holdfor;
 +(void)processResponse:(NSMutableArray*)webResponse;
 +(void)setupUid;
 +(void)checkStatus;
 +(void)checkStatusCallback:(NSString*)response;
-+(void)checkToken;
++(void)checkToken:(NSTimer *)timer;
 +(void)checkTokenCallback:(NSString*)response;
 +(void)newTokenCallback:(NSString*)response;
++(void)updateInterface;
++(void)joinSession:(int)sendtoken;
++(void)joinSessionCallback:(NSString*)response;
 
 @end

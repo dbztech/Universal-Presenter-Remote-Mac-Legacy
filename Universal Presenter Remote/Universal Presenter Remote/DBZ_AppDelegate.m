@@ -2,30 +2,33 @@
 //  DBZ_AppDelegate.m
 //  Universal Presenter Remote
 //
-//  Created by Brendan Boyle on 3/31/14.
+//  Created by Brendan Boyle on 4/11/14.
 //  Copyright (c) 2014 DBZ Technology. All rights reserved.
 //
 
 #import "DBZ_AppDelegate.h"
-#import "DBZ_PresentWindowController.h"
+#import "DBZ_ConnectView.h"
+#import "DBZ_PresentView.h"
 #import "DBZ_ServerCommunication.h"
 
 @implementation DBZ_AppDelegate
 
-DBZ_PresentWindowController *presentWindow;
+DBZ_PresentView *presentWindow;
+DBZ_ConnectView *connectWindow;
 
--(void)applicationDidFinishLaunching:(NSNotification *)Notification
-{
+-(void)applicationDidFinishLaunching:(NSNotification *)Notification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ServerResponse" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInterface:) name:@"UpdateInterface" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(joinSession:) name:@"JoinSession" object:nil];
     
     [DBZ_ServerCommunication setupUid];
     [DBZ_ServerCommunication checkStatus];
     
-    NSTimer *checkServerTimer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkServer:) userInfo:nil repeats:YES];
+    //NSTimer *checkServerTimer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkServer:) userInfo:nil repeats:YES];
     
     
-    presentWindow = [[DBZ_PresentWindowController alloc] initWithWindowNibName:@"DBZ_PresentWindowController"];
+    presentWindow = [[DBZ_PresentView alloc] initWithWindowNibName:@"DBZ_PresentView"];
+    connectWindow = [[DBZ_ConnectView alloc] initWithWindowNibName:@"DBZ_ConnectView"];
     [_token1 becomeFirstResponder];
     // Insert code here to initialize your application
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:NSControlTextDidChangeNotification object:_token1];
@@ -64,19 +67,55 @@ DBZ_PresentWindowController *presentWindow;
 }
 
 -(void)validate {
+    
     if (![[_token1 stringValue] isEqualToString:@""] && ![[_token2 stringValue] isEqualToString:@""] && ![[_token3 stringValue] isEqualToString:@""] && ![[_token4 stringValue] isEqualToString:@""] && ![[_token5 stringValue] isEqualToString:@""] && ![[_token6 stringValue] isEqualToString:@""]) {
-        _connectButton.enabled = YES;
+        _presentButton.enabled = YES;
     } else {
-        _connectButton.enabled = NO;
+        _presentButton.enabled = NO;
     }
 }
 
+- (IBAction)presentButton:(id)sender {
+    [_presentButton setEnabled:NO];
+    [_presentButton setTitle:@"Connecting..."];
+    NSString *presentToken = [NSString stringWithFormat:@"%@%@%@%@%@%@",[_token1 stringValue],[_token2 stringValue],[_token3 stringValue],[_token4 stringValue],[_token5 stringValue],[_token6 stringValue]];
+    int temp = [presentToken intValue];
+    [DBZ_ServerCommunication joinSession:temp];
+}
+
 -(IBAction)connectButton:(id)sender {
-    [_window orderOut:self];
-    [presentWindow showWindow:self];
+    //[_window orderOut:self];
+    [connectWindow showWindow:self];
 }
 
 -(void)checkServer:(NSTimer*) timer {
     [DBZ_ServerCommunication checkStatus];
 }
+
+-(void)updateInterface:(NSNotification*)notification {
+    int token = DBZ_ServerCommunication.temptoken;
+    switch ([DBZ_ServerCommunication controlmode]) {
+        case 1:
+            [_connectButton setTitle:@"Waiting..."];
+            [_connectButton setEnabled:NO];
+            [_tokenLabel setStringValue: [NSString stringWithFormat:@"%d",token]];
+            break;
+            
+        case 2:
+            [_connectButton setTitle:@"Connect!"];
+            [_connectButton setEnabled:YES];
+            break;
+            
+        default:
+            [_connectButton setTitle:@"Connecting..."];
+            [_connectButton setEnabled:NO];
+            break;
+    }
+}
+
+-(void)joinSession:(NSNotification *)notification {
+    //[_window orderOut:self];
+    [presentWindow showWindow:self];
+}
+
 @end
