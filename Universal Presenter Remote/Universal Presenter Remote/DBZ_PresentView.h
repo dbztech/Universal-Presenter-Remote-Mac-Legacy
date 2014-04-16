@@ -14,5 +14,6 @@
 
 - (IBAction)connectButton:(id)sender;
 -(void)checkSlide:(NSTimer *)timer;
+- (void)windowWillClose:(NSNotification *)notification;
 
 @end

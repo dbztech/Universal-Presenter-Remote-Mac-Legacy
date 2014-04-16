@@ -29,14 +29,20 @@ NSTimer *timer;
 - (void)windowDidLoad
 {
     [super windowDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self.window];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+    NSWindow *win = [notification object];
     
 }
 
 - (IBAction)connectButton:(id)sender {
     _connectButton.title = @"Disconnect";
-    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkSlide:) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkSlide:) userInfo:nil repeats:YES];
 }
 
 -(void)checkSlide:(NSTimer *)timer {
