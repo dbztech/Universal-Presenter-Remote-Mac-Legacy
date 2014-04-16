@@ -16,7 +16,6 @@
 +(int)temptoken;
 +(int)controlmode;
 +(int)token;
-+(bool)enabled;
 +(bool)serverAvailable;
 
 +(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor;

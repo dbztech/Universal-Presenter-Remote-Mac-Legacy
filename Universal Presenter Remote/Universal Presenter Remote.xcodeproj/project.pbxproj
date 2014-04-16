@@ -70,6 +70,7 @@
 		ED36A9EA18F870A0001247AB /* DBZ_SlideControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_SlideControl.m; sourceTree = "<group>"; };
 		ED36A9F018F8775B001247AB /* left.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = left.scpt; sourceTree = "<group>"; };
 		ED36A9F118F8775B001247AB /* right.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = right.scpt; sourceTree = "<group>"; };
+		ED70D5DC18FF14EE007B4C18 /* Universal Presenter Remote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Universal Presenter Remote.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +136,7 @@
 		ED36A9AE18F8702F001247AB /* Universal Presenter Remote */ = {
 			isa = PBXGroup;
 			children = (
+				ED70D5DC18FF14EE007B4C18 /* Universal Presenter Remote.entitlements */,
 				ED36A9EF18F8773D001247AB /* Scripts */,
 				ED36A9EE18F870D4001247AB /* Classes */,
 				ED36A9ED18F870BE001247AB /* Interfaces */,
@@ -266,6 +268,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "DBZ Technology";
 				TargetAttributes = {
+					ED36A9A418F8702F001247AB = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
+					};
 					ED36A9C518F8702F001247AB = {
 						TestTargetID = ED36A9A418F8702F001247AB;
 					};
@@ -458,6 +467,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Universal Presenter Remote/Universal Presenter Remote.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Universal Presenter Remote/Universal Presenter Remote-Prefix.pch";
@@ -472,6 +483,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Universal Presenter Remote/Universal Presenter Remote.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Universal Presenter Remote/Universal Presenter Remote-Prefix.pch";
@@ -541,6 +554,7 @@
 				ED36A9D818F87030001247AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ED36A9D918F87030001247AB /* Build configuration list for PBXNativeTarget "Universal Presenter RemoteTests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +563,7 @@
 				ED36A9DB18F87030001247AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

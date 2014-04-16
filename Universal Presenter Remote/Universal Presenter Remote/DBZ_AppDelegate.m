@@ -104,7 +104,7 @@ DBZ_ConnectView *connectWindow;
             break;
             
         case 2:
-            [_connectButton setTitle:@"Connect!"];
+            [_connectButton setTitle:@"Connect"];
             [_connectButton setEnabled:YES];
             break;
             
@@ -129,6 +129,7 @@ DBZ_ConnectView *connectWindow;
     _token4.stringValue = @"";
     _token5.stringValue = @"";
     _token6.stringValue = @"";
+    _connectButton.title = @"Connect";
     [_token1 becomeFirstResponder];
     [DBZ_ServerCommunication setupUid];
     [DBZ_ServerCommunication checkStatus];

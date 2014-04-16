@@ -16,7 +16,6 @@ static int uid = 10;
 static int temptoken = 10;
 static int controlmode = 0;
 static int token = 0;
-static bool enabled = NO;
 static bool serverAvailable = NO;
 static NSTimer *timer;
 
@@ -25,7 +24,6 @@ static NSTimer *timer;
 +(int)temptoken { return  temptoken;}
 +(int)controlmode { return  controlmode;}
 +(int)token { return  token;}
-+(bool)enabled { return  enabled;}
 +(bool)serverAvailable { return  serverAvailable;}
 
 +(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor {
