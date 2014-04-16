@@ -27,6 +27,7 @@
 - (void)windowDidLoad
 {
     [super windowDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self.window];
     [DBZ_ServerCommunication connectSetup];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
@@ -41,5 +42,12 @@
 
 - (IBAction)mediaButton:(id)sender {
     [DBZ_ServerCommunication getResponse:@"PlayMedia" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+    NSNotification *outgoingnotification = [NSNotification notificationWithName:@"Reset" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:outgoingnotification];
+    
 }
 @end

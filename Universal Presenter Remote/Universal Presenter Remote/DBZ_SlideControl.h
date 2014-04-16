@@ -17,5 +17,6 @@
 + (void)slideLeft;
 + (void)slideRight;
 + (void)playMedia;
++ (void)reset;
 
 @end

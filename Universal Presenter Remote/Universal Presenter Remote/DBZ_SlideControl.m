@@ -77,5 +77,9 @@ static int currentslide = 5000;
     [self slideControl:1];
 }
 
++(void)reset {
+    currentslide = 5000;
+}
+
 
 @end

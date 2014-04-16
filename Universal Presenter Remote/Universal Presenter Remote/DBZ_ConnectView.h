@@ -13,5 +13,6 @@
 - (IBAction)leftButton:(id)sender;
 - (IBAction)rightButton:(id)sender;
 - (IBAction)mediaButton:(id)sender;
+- (void)windowWillClose:(NSNotification *)notification;
 
 @end

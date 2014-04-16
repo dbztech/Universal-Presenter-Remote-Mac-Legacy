@@ -36,7 +36,8 @@ NSTimer *timer;
 
 - (void)windowWillClose:(NSNotification *)notification
 {
-    NSWindow *win = [notification object];
+    NSNotification *outgoingnotification = [NSNotification notificationWithName:@"Reset" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:outgoingnotification];
     
 }
 

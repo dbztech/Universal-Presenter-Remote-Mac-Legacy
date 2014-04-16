@@ -11,7 +11,6 @@
 @interface DBZ_PresentView : NSWindowController
 
 @property (weak) IBOutlet NSButton *connectButton;
-
 - (IBAction)connectButton:(id)sender;
 -(void)checkSlide:(NSTimer *)timer;
 - (void)windowWillClose:(NSNotification *)notification;

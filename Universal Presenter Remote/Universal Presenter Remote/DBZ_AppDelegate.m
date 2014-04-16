@@ -10,6 +10,7 @@
 #import "DBZ_ConnectView.h"
 #import "DBZ_PresentView.h"
 #import "DBZ_ServerCommunication.h"
+#import "DBZ_SlideControl.h"
 
 @implementation DBZ_AppDelegate
 
@@ -20,6 +21,7 @@ DBZ_ConnectView *connectWindow;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ServerResponse" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInterface:) name:@"UpdateInterface" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(joinSession:) name:@"JoinSession" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reset:) name:@"Reset" object:nil];
     
     [DBZ_ServerCommunication setupUid];
     [DBZ_ServerCommunication checkStatus];
@@ -84,7 +86,7 @@ DBZ_ConnectView *connectWindow;
 }
 
 -(IBAction)connectButton:(id)sender {
-    //[_window orderOut:self];
+    [_window orderOut:self];
     [connectWindow showWindow:self];
 }
 
@@ -114,8 +116,23 @@ DBZ_ConnectView *connectWindow;
 }
 
 -(void)joinSession:(NSNotification *)notification {
-    //[_window orderOut:self];
+    [_window orderOut:self];
     [presentWindow showWindow:self];
+}
+
+- (void)reset:(NSNotification *)notification
+{
+    [_window makeKeyAndOrderFront:self];
+    _token1.stringValue = @"";
+    _token2.stringValue = @"";
+    _token3.stringValue = @"";
+    _token4.stringValue = @"";
+    _token5.stringValue = @"";
+    _token6.stringValue = @"";
+    [_token1 becomeFirstResponder];
+    [DBZ_ServerCommunication setupUid];
+    [DBZ_ServerCommunication checkStatus];
+    [DBZ_SlideControl reset];
 }
 
 @end
