@@ -36,10 +36,10 @@ NSTimer *timer;
 
 - (IBAction)connectButton:(id)sender {
     _connectButton.title = @"Disconnect";
-    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkSlide:) userInfo:nil repeats:NO];
+    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkSlide:) userInfo:nil repeats:YES];
 }
 
-+(void)checkSlide:(NSTimer *)timer {
+-(void)checkSlide:(NSTimer *)timer {
     [DBZ_ServerCommunication getResponse:@"ActiveSession" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 

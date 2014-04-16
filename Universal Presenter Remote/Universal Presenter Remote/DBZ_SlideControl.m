@@ -15,13 +15,24 @@ static int currentslide = 5000;
 +(int)currentslide { return currentslide; }
 
 +(void)setSlide:(int)slide {
+    int deltaslide = slide - currentslide;
+    
+    if (deltaslide < 0) {
+        [self slideLeft];
+    }
+    if (deltaslide > 0 && deltaslide < 50) {
+        [self slideRight];
+    }
+    if (deltaslide > 50) {
+        [self playMedia];
+    }
     currentslide = slide;
 }
 
 + (void)slideControl:(int)action {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSConditionLock *lock = [[NSConditionLock alloc] initWithCondition:0];
-        NSURL *script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"nil" ofType:@"scpt"]];
+        NSURL *script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
         
         switch (action) {
             case 0:
