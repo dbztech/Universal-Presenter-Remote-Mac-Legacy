@@ -10,4 +10,8 @@
 
 @interface DBZ_ConnectView : NSWindowController
 
+- (IBAction)leftButton:(id)sender;
+- (IBAction)rightButton:(id)sender;
+- (IBAction)mediaButton:(id)sender;
+
 @end

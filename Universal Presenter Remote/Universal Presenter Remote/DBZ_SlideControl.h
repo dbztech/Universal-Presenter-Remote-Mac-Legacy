@@ -10,6 +10,9 @@
 
 @interface DBZ_SlideControl : NSObject
 
++(int)currentslide;
++(void)setSlide:(int)slide;
+
 + (void)slideControl:(int)action;
 + (void)slideLeft;
 + (void)slideRight;

@@ -10,6 +10,13 @@
 
 @implementation DBZ_SlideControl
 
+static int currentslide = 5000;
+
++(int)currentslide { return currentslide; }
+
++(void)setSlide:(int)slide {
+    currentslide = slide;
+}
 
 + (void)slideControl:(int)action {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

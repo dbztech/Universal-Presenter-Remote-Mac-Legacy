@@ -13,5 +13,6 @@
 @property (weak) IBOutlet NSButton *connectButton;
 
 - (IBAction)connectButton:(id)sender;
++(void)checkSlide:(NSTimer *)timer;
 
 @end

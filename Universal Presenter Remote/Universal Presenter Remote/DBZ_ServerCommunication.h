@@ -19,7 +19,7 @@
 +(bool)enabled;
 +(bool)serverAvailable;
 
-+(void)getResponse:(NSString*)page withToken:(int*)requestToken withHoldfor:(bool)holdfor;
++(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor;
 +(void)processResponse:(NSMutableArray*)webResponse;
 +(void)setupUid;
 +(void)checkStatus;
@@ -30,5 +30,6 @@
 +(void)updateInterface;
 +(void)joinSession:(int)sendtoken;
 +(void)joinSessionCallback:(NSString*)response;
++(void)activeSessionCallback:(NSString*)response;
 
 @end

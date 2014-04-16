@@ -7,6 +7,7 @@
 //
 
 #import "DBZ_ConnectView.h"
+#import "DBZ_ServerCommunication.h"
 
 @interface DBZ_ConnectView ()
 
@@ -30,4 +31,15 @@
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
 
+- (IBAction)leftButton:(id)sender {
+    [DBZ_ServerCommunication getResponse:@"SlideDown" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
+}
+
+- (IBAction)rightButton:(id)sender {
+    [DBZ_ServerCommunication getResponse:@"SlideUp" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
+}
+
+- (IBAction)mediaButton:(id)sender {
+    [DBZ_ServerCommunication getResponse:@"PlayMedia" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
+}
 @end

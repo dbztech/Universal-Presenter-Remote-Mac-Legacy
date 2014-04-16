@@ -28,11 +28,11 @@ static NSTimer *timer;
 +(bool)enabled { return  enabled;}
 +(bool)serverAvailable { return  serverAvailable;}
 
-+(void)getResponse:(NSString*)page withToken:(int*)requestToken withHoldfor:(bool)holdfor {
++(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor {
     __block NSString *result;
     NSString *strURL= [NSString stringWithFormat:@"%@/%@", serverAddress, page];
-    if (requestToken != nil) {
-        strURL = [NSString stringWithFormat:@"%@?token=%d", strURL, (int)requestToken];
+    if (requestToken > 99999) {
+        strURL = [NSString stringWithFormat:@"%@?token=%d", strURL, requestToken];
     }
     
     if (holdfor) {
@@ -60,7 +60,7 @@ static NSTimer *timer;
 
 +(void)processResponse:(NSMutableArray*)webResponse {
     // The one we want to switch on
-    NSArray *items = @[@"Alive", @"NewSession", @"TempSession", @"JoinSession"];
+    NSArray *items = @[@"Alive", @"NewSession", @"TempSession", @"JoinSession", @"ActiveSession"];
     NSInteger item = [items indexOfObject:[webResponse objectAtIndex:0]];
     switch (item) {
         case 0:
@@ -79,6 +79,10 @@ static NSTimer *timer;
             // JoinSession
             [self joinSessionCallback:[webResponse objectAtIndex:1]];
             break;
+        case 4:
+            // ActiveSession
+            [self activeSessionCallback:[webResponse objectAtIndex:1]];
+            break;
         default:
             break;
     }
@@ -90,7 +94,7 @@ static NSTimer *timer;
 }
 
 +(void)checkStatus {
-    [self getResponse:@"Alive" withToken:nil withHoldfor:NO];
+    [self getResponse:@"Alive" withToken:0 withHoldfor:NO];
 }
 
 +(void)checkStatusCallback:(NSString *)response {
@@ -107,7 +111,7 @@ static NSTimer *timer;
 }
 
 +(void)checkToken:(NSTimer *)timer {
-    int *sendtoken = temptoken;
+    int sendtoken = temptoken;
     [self getResponse:@"TempSession" withToken:sendtoken withHoldfor:YES];
 }
 
@@ -131,7 +135,7 @@ static NSTimer *timer;
             break;
     }
     if (temptoken == 0) {
-        [self getResponse:@"NewSession" withToken:nil withHoldfor:NO];
+        [self getResponse:@"NewSession" withToken:0 withHoldfor:NO];
     }
     [self updateInterface];
 }
@@ -160,6 +164,18 @@ static NSTimer *timer;
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert setMessageText:@"The token you entered was invalid, please try again"];
+        [alert runModal];
+    }
+}
+
++(void)activeSessionCallback:(NSString *)response {
+    if ([response integerValue] > 0) {
+        NSNotification* notification = [NSNotification notificationWithName:@"ChangeSlide" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        [DBZ_SlideControl setSlide:[response intValue]];
+    } else {
+        NSAlert *alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Server error! Please restart your application and check your internet connection"];
         [alert runModal];
     }
 }

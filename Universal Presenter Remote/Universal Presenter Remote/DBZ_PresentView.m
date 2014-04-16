@@ -7,12 +7,15 @@
 //
 
 #import "DBZ_PresentView.h"
+#import "DBZ_ServerCommunication.h"
 
 @interface DBZ_PresentView ()
 
 @end
 
 @implementation DBZ_PresentView
+
+NSTimer *timer;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -28,10 +31,16 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    
 }
 
 - (IBAction)connectButton:(id)sender {
     _connectButton.title = @"Disconnect";
+    timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(checkSlide:) userInfo:nil repeats:NO];
+}
+
++(void)checkSlide:(NSTimer *)timer {
+    [DBZ_ServerCommunication getResponse:@"ActiveSession" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 
 @end
