@@ -31,5 +31,6 @@
 +(void)joinSession:(int)sendtoken;
 +(void)joinSessionCallback:(NSString*)response;
 +(void)activeSessionCallback:(NSString*)response;
++(void)connectSetup;
 
 @end

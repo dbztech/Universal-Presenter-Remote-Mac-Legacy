@@ -180,6 +180,10 @@ static NSTimer *timer;
     }
 }
 
++(void)connectSetup {
+    token = temptoken;
+}
+
 /*
  public static void checkStatus()
  {
