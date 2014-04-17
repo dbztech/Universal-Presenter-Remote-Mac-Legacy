@@ -18,6 +18,9 @@ DBZ_PresentView *presentWindow;
 DBZ_ConnectView *connectWindow;
 
 -(void)applicationDidFinishLaunching:(NSNotification *)Notification {
+    if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
+        self.activity = [[NSProcessInfo processInfo] beginActivityWithOptions:0x00FFFFFF reason:@"receiving OSC messages"];
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(incomingNotification:) name:@"ServerResponse" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInterface:) name:@"UpdateInterface" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(joinSession:) name:@"JoinSession" object:nil];

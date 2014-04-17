@@ -11,6 +11,7 @@
 @interface DBZ_AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (strong) id activity;
 
 @property (weak) IBOutlet NSTextField *token1;
 @property (weak) IBOutlet NSTextField *token2;
