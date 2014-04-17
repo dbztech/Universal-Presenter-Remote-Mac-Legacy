@@ -17,14 +17,24 @@ static int temptoken = 10;
 static int controlmode = 0;
 static int token = 0;
 static bool serverAvailable = NO;
+static bool enabled = NO;
 static NSTimer *timer;
+static NSTimer *activeTimer;
 
-+(NSString*)serverAddress { return  serverAddress;}
-+(int)uid { return  uid;}
-+(int)temptoken { return  temptoken;}
-+(int)controlmode { return  controlmode;}
-+(int)token { return  token;}
-+(bool)serverAvailable { return  serverAvailable;}
++(NSString*)serverAddress { return  serverAddress; }
++(int)uid { return  uid; }
++(int)temptoken { return  temptoken; }
++(int)controlmode { return  controlmode; }
++(int)token { return  token; }
++(bool)serverAvailable { return  serverAvailable; }
++(bool)enabled { return  enabled; }
+
++(void)setEnabled:(bool)changeto {
+    if (enabled != changeto && changeto) {
+        [DBZ_ServerCommunication getResponse:@"ActiveSession" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
+    }
+    enabled = changeto;
+}
 
 +(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor {
     __block NSString *result;
@@ -171,11 +181,20 @@ static NSTimer *timer;
         NSNotification* notification = [NSNotification notificationWithName:@"ChangeSlide" object:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
         [DBZ_SlideControl setSlide:[response intValue]];
+        if (enabled) {
+            activeTimer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkSlide:) userInfo:nil repeats:NO];
+        } else {
+            [activeTimer invalidate];
+        }
     } else {
         NSAlert *alert = [[NSAlert alloc] init];
         [alert setMessageText:@"Server error! Please restart your application and check your internet connection"];
         [alert runModal];
     }
+}
+
++(void)checkSlide:(NSTimer *)timer {
+    [DBZ_ServerCommunication getResponse:@"ActiveSession" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 
 +(void)connectSetup {

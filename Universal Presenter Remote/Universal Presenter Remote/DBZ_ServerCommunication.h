@@ -17,6 +17,8 @@
 +(int)controlmode;
 +(int)token;
 +(bool)serverAvailable;
++(bool)enabled;
++(void)setEnabled:(bool)changeto;
 
 +(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor;
 +(void)processResponse:(NSMutableArray*)webResponse;
@@ -30,6 +32,7 @@
 +(void)joinSession:(int)sendtoken;
 +(void)joinSessionCallback:(NSString*)response;
 +(void)activeSessionCallback:(NSString*)response;
++(void)checkSlide:(NSTimer *)timer;
 +(void)connectSetup;
 
 @end

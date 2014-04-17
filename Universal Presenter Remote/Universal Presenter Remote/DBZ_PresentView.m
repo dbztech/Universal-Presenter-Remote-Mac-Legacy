@@ -15,8 +15,6 @@
 
 @implementation DBZ_PresentView
 
-NSTimer *timer;
-bool enabled = NO;
 
 - (id)initWithWindow:(NSWindow *)window
 {
@@ -43,20 +41,14 @@ bool enabled = NO;
 }
 
 - (IBAction)connectButton:(id)sender {
-    if (enabled) {
-        _connectButton.title = @"Disconnect";
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkSlide:) userInfo:nil repeats:YES];
-        enabled = NO;
-    } else {
+    if ([DBZ_ServerCommunication enabled]) {
         _connectButton.title = @"Connect";
-        [timer invalidate];
-        enabled = YES;
+        [DBZ_ServerCommunication setEnabled:NO];
+    } else {
+        _connectButton.title = @"Disconnect";
+        [DBZ_ServerCommunication setEnabled:YES];
     }
     
-}
-
--(void)checkSlide:(NSTimer *)timer {
-    [DBZ_ServerCommunication getResponse:@"ActiveSession" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 
 @end
