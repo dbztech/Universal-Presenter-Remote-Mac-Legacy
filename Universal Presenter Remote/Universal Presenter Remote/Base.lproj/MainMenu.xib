@@ -685,7 +685,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="700" height="400"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <tabView appearanceType="lightContent" translatesAutoresizingMaskIntoConstraints="NO" id="hdp-ee-m7v">
+                    <tabView translatesAutoresizingMaskIntoConstraints="NO" id="hdp-ee-m7v">
                         <rect key="frame" x="13" y="10" width="674" height="376"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
