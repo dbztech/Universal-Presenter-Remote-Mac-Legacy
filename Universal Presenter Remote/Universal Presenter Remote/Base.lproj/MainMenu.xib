@@ -679,13 +679,13 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="700" height="400"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <value key="minSize" type="size" width="700" height="400"/>
             <view key="contentView" id="AaU-YP-ahF">
                 <rect key="frame" x="0.0" y="0.0" width="700" height="400"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <tabView translatesAutoresizingMaskIntoConstraints="NO" id="hdp-ee-m7v">
+                    <tabView initialItem="pOU-Vn-RrV" translatesAutoresizingMaskIntoConstraints="NO" id="hdp-ee-m7v">
                         <rect key="frame" x="13" y="10" width="674" height="376"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <font key="font" metaFont="system"/>
@@ -840,23 +840,30 @@
                                     <rect key="frame" x="10" y="33" width="654" height="330"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8NA-GN-h9y">
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8NA-GN-h9y">
                                             <rect key="frame" x="250" y="172" width="155" height="155"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="155" id="VTq-E3-Z0Y"/>
+                                                <constraint firstAttribute="width" constant="155" id="e5G-K8-3ZN"/>
+                                            </constraints>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="A65-dD-46N"/>
                                         </imageView>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZm-gV-0gg">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BZm-gV-0gg">
                                             <rect key="frame" x="15" y="95" width="624" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="..." id="jN7-he-nUY">
                                                 <font key="font" metaFont="system" size="35"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huQ-QT-35w">
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="huQ-QT-35w">
                                             <rect key="frame" x="252" y="10" width="150" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="138" id="62N-Dk-L3w"/>
+                                            </constraints>
                                             <buttonCell key="cell" type="push" title="Connecting..." bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="d7d-MD-MQ2">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -866,6 +873,15 @@
                                             </connections>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="huQ-QT-35w" secondAttribute="bottom" constant="17" id="DEx-Yk-maw"/>
+                                        <constraint firstItem="8NA-GN-h9y" firstAttribute="centerX" secondItem="BZm-gV-0gg" secondAttribute="centerX" id="ES8-Z5-hTN"/>
+                                        <constraint firstItem="BZm-gV-0gg" firstAttribute="centerX" secondItem="huQ-QT-35w" secondAttribute="centerX" id="SAk-35-EuJ"/>
+                                        <constraint firstItem="8NA-GN-h9y" firstAttribute="top" secondItem="19g-eM-5F7" secondAttribute="top" constant="3" id="UV5-7m-Xsg"/>
+                                        <constraint firstItem="BZm-gV-0gg" firstAttribute="leading" secondItem="19g-eM-5F7" secondAttribute="leading" constant="17" id="g2H-5Y-MhB"/>
+                                        <constraint firstAttribute="trailing" secondItem="BZm-gV-0gg" secondAttribute="trailing" constant="17" id="ikV-S9-pue"/>
+                                        <constraint firstItem="BZm-gV-0gg" firstAttribute="top" secondItem="8NA-GN-h9y" secondAttribute="bottom" constant="35" id="ztt-M5-Kb3"/>
+                                    </constraints>
                                 </view>
                             </tabViewItem>
                         </tabViewItems>

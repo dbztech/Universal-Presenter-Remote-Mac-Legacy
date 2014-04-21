@@ -25,7 +25,7 @@ DBZ_ConnectView *connectWindow;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInterface:) name:@"UpdateInterface" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(joinSession:) name:@"JoinSession" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reset:) name:@"Reset" object:nil];
-    //[_window setBackgroundColor:[NSColor colorWithRed:52 green:6 blue:54 alpha:1]];
+    [self.window setBackgroundColor: [NSColor colorWithRed:52.0f/255.0f green:6.0f/255.0f blue:54.0f/255.0f alpha:1.0f]];
     
     [DBZ_ServerCommunication setupUid];
     [DBZ_ServerCommunication checkStatus];
