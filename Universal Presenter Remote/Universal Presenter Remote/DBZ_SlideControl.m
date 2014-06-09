@@ -30,39 +30,63 @@ static int currentslide = 5000;
 }
 
 + (void)slideControl:(int)action {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSConditionLock *lock = [[NSConditionLock alloc] initWithCondition:0];
-        NSURL *script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
-        
-        switch (action) {
-            case 0:
-                script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
-                break;
-            case 1:
-                script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"right" ofType:@"scpt"]];
-                break;
-            case 2:
-                script = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"left" ofType:@"scpt"]];
-                break;
-            default:
-                break;
+    NSDictionary* errorDict;
+    NSAppleEventDescriptor* returnDescriptor = NULL;
+    NSAppleScript* scriptObject = [[NSAppleScript alloc] initWithSource:
+                                   @"\
+                                   tell application \"System Events\"\n\
+                                   key code 124\n\
+                                   end tell"];
+    switch (action) {
+        case 0:
+           scriptObject = [[NSAppleScript alloc] initWithSource:
+                                           @"\
+                                           tell application \"System Events\"\n\
+                                           key code 123\n\
+                                           end tell"];
+            break;
+        case 1:
+            scriptObject = [[NSAppleScript alloc] initWithSource:
+                                           @"\
+                                           tell application \"System Events\"\n\
+                                           key code 124\n\
+                                           end tell"];
+            break;
+        case 2:
+            scriptObject = [[NSAppleScript alloc] initWithSource:
+                                           @"\
+                                           tell application \"System Events\"\n\
+                                           key code 124\n\
+                                           end tell"];
+            break;
+        default:
+            break;
+    }
+    
+    returnDescriptor = [scriptObject executeAndReturnError: &errorDict];
+    
+    if (returnDescriptor != NULL)
+    {
+        // successful execution
+        if (kAENullEvent != [returnDescriptor descriptorType])
+        {
+            // script returned an AppleScript result
+            if (cAEList == [returnDescriptor descriptorType])
+            {
+                // result is a list of other descriptors
+            }
+            else
+            {
+                // coerce the result to the appropriate ObjC type
+            }
         }
-        for (int i=0; i<1; i++) {
-            NSError *error;
-            NSUserAppleScriptTask *task = [[NSUserAppleScriptTask alloc] initWithURL:script error:&error];
-            [task executeWithCompletionHandler:^(NSError *error) {
-                if (error){
-                    NSLog(@"Script execution failed with error: %@", [error localizedDescription]);
-                }
-                [lock lock];
-                [lock unlockWithCondition:1];
-            }];
-            
-            //This will wait until the completion handler of the script task has run:
-            [lock lockWhenCondition:1];
-            [lock unlockWithCondition:0];
-        }
-    });
+    }
+    else
+    {
+        // no script result, handle error here
+    }
+
+    
 }
 
 + (void)slideLeft {

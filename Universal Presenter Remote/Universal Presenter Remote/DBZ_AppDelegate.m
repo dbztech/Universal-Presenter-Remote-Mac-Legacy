@@ -9,6 +9,7 @@
 #import "DBZ_AppDelegate.h"
 #import "DBZ_ConnectView.h"
 #import "DBZ_PresentView.h"
+#import "DBZ_InstructionView.h"
 #import "DBZ_ServerCommunication.h"
 #import "DBZ_SlideControl.h"
 
@@ -16,6 +17,7 @@
 
 DBZ_PresentView *presentWindow;
 DBZ_ConnectView *connectWindow;
+DBZ_InstructionView *instructionWindow;
 
 -(void)applicationDidFinishLaunching:(NSNotification *)Notification {
     if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
@@ -25,7 +27,7 @@ DBZ_ConnectView *connectWindow;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateInterface:) name:@"UpdateInterface" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(joinSession:) name:@"JoinSession" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reset:) name:@"Reset" object:nil];
-    [self.window setBackgroundColor: [NSColor colorWithRed:52.0f/255.0f green:6.0f/255.0f blue:54.0f/255.0f alpha:1.0f]];
+    //[self.window setBackgroundColor: [NSColor colorWithRed:52.0f/255.0f green:6.0f/255.0f blue:54.0f/255.0f alpha:1.0f]];
     
     [DBZ_ServerCommunication setupUid];
     [DBZ_ServerCommunication checkStatus];
@@ -35,6 +37,7 @@ DBZ_ConnectView *connectWindow;
     
     presentWindow = [[DBZ_PresentView alloc] initWithWindowNibName:@"DBZ_PresentView"];
     connectWindow = [[DBZ_ConnectView alloc] initWithWindowNibName:@"DBZ_ConnectView"];
+    instructionWindow = [[DBZ_InstructionView alloc] initWithWindowNibName:@"DBZ_InstructionView"];
     [_token1 becomeFirstResponder];
     // Insert code here to initialize your application
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:NSControlTextDidChangeNotification object:_token1];
@@ -83,7 +86,6 @@ DBZ_ConnectView *connectWindow;
 
 - (IBAction)presentButton:(id)sender {
     [_presentButton setEnabled:NO];
-    [_presentButton setTitle:@"Connecting..."];
     NSString *presentToken = [NSString stringWithFormat:@"%@%@%@%@%@%@",[_token1 stringValue],[_token2 stringValue],[_token3 stringValue],[_token4 stringValue],[_token5 stringValue],[_token6 stringValue]];
     int temp = [presentToken intValue];
     [DBZ_ServerCommunication joinSession:temp];
@@ -92,6 +94,10 @@ DBZ_ConnectView *connectWindow;
 -(IBAction)connectButton:(id)sender {
     [_window orderOut:self];
     [connectWindow showWindow:self];
+}
+
+- (IBAction)instructionButton:(id)sender {
+    [instructionWindow showWindow:self];
 }
 
 -(void)checkServer:(NSTimer*) timer {

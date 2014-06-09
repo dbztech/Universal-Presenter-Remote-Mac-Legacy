@@ -29,6 +29,7 @@
 {
     [super windowDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self.window];
+    _connectButton.title = @"Begin";
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     
 }
@@ -42,10 +43,10 @@
 
 - (IBAction)connectButton:(id)sender {
     if ([DBZ_ServerCommunication enabled]) {
-        _connectButton.title = @"Connect";
+        _connectButton.title = @"Resume";
         [DBZ_ServerCommunication setEnabled:NO];
     } else {
-        _connectButton.title = @"Disconnect";
+        _connectButton.title = @"Pause";
         [DBZ_ServerCommunication setEnabled:YES];
     }
     

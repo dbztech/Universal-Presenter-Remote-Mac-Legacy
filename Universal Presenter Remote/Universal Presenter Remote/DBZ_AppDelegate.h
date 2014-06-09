@@ -24,14 +24,15 @@
 @property (weak) IBOutlet NSButton *connectButton;
 
 
--(IBAction)presentButton:(id)sender;
--(IBAction)connectButton:(id)sender;
+- (IBAction)presentButton:(id)sender;
+- (IBAction)connectButton:(id)sender;
+- (IBAction)instructionButton:(id)sender;
 
--(void)textViewDidChange:(NSNotification*)notification;
--(void)validate;
--(void)incomingNotification:(NSNotification *)notification;
--(void)updateInterface:(NSNotification*)notification;
--(void)joinSession:(NSNotification*)notification;
+- (void)textViewDidChange:(NSNotification*)notification;
+- (void)validate;
+- (void)incomingNotification:(NSNotification *)notification;
+- (void)updateInterface:(NSNotification*)notification;
+- (void)joinSession:(NSNotification*)notification;
 - (void)reset:(NSNotification *)notification;
 
 

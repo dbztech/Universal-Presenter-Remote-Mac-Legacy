@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B391DB9A1925CABD00634BA7 /* DBZ_InstructionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B391DB981925CABD00634BA7 /* DBZ_InstructionView.m */; };
+		B391DB9B1925CABD00634BA7 /* DBZ_InstructionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B391DB991925CABD00634BA7 /* DBZ_InstructionView.xib */; };
 		ED36A9A918F8702F001247AB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED36A9A818F8702F001247AB /* Cocoa.framework */; };
 		ED36A9B318F8702F001247AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ED36A9B118F8702F001247AB /* InfoPlist.strings */; };
 		ED36A9B518F8702F001247AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED36A9B418F8702F001247AB /* main.m */; };
@@ -24,8 +26,6 @@
 		ED36A9E518F8707B001247AB /* DBZ_PresentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED36A9E318F8707B001247AB /* DBZ_PresentView.xib */; };
 		ED36A9E818F87093001247AB /* DBZ_ServerCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = ED36A9E718F87093001247AB /* DBZ_ServerCommunication.m */; };
 		ED36A9EB18F870A0001247AB /* DBZ_SlideControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ED36A9EA18F870A0001247AB /* DBZ_SlideControl.m */; };
-		ED36A9F218F8775B001247AB /* left.scpt in Resources */ = {isa = PBXBuildFile; fileRef = ED36A9F018F8775B001247AB /* left.scpt */; };
-		ED36A9F318F8775B001247AB /* right.scpt in Resources */ = {isa = PBXBuildFile; fileRef = ED36A9F118F8775B001247AB /* right.scpt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B391DB971925CABD00634BA7 /* DBZ_InstructionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_InstructionView.h; sourceTree = "<group>"; };
+		B391DB981925CABD00634BA7 /* DBZ_InstructionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_InstructionView.m; sourceTree = "<group>"; };
+		B391DB991925CABD00634BA7 /* DBZ_InstructionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DBZ_InstructionView.xib; sourceTree = "<group>"; };
 		ED36A9A518F8702F001247AB /* Universal Presenter Remote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Universal Presenter Remote.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED36A9A818F8702F001247AB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		ED36A9AB18F8702F001247AB /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -68,8 +71,6 @@
 		ED36A9E718F87093001247AB /* DBZ_ServerCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_ServerCommunication.m; sourceTree = "<group>"; };
 		ED36A9E918F870A0001247AB /* DBZ_SlideControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_SlideControl.h; sourceTree = "<group>"; };
 		ED36A9EA18F870A0001247AB /* DBZ_SlideControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_SlideControl.m; sourceTree = "<group>"; };
-		ED36A9F018F8775B001247AB /* left.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = left.scpt; sourceTree = "<group>"; };
-		ED36A9F118F8775B001247AB /* right.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = right.scpt; sourceTree = "<group>"; };
 		ED70D5DC18FF14EE007B4C18 /* Universal Presenter Remote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Universal Presenter Remote.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				ED70D5DC18FF14EE007B4C18 /* Universal Presenter Remote.entitlements */,
-				ED36A9EF18F8773D001247AB /* Scripts */,
 				ED36A9EE18F870D4001247AB /* Classes */,
 				ED36A9ED18F870BE001247AB /* Interfaces */,
 				ED36A9EC18F870A5001247AB /* View Controllers */,
@@ -186,6 +186,8 @@
 				ED36A9DD18F8706A001247AB /* DBZ_ConnectView.m */,
 				ED36A9E118F8707B001247AB /* DBZ_PresentView.h */,
 				ED36A9E218F8707B001247AB /* DBZ_PresentView.m */,
+				B391DB971925CABD00634BA7 /* DBZ_InstructionView.h */,
+				B391DB981925CABD00634BA7 /* DBZ_InstructionView.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -196,6 +198,7 @@
 				ED36A9BD18F8702F001247AB /* MainMenu.xib */,
 				ED36A9DE18F8706A001247AB /* DBZ_ConnectView.xib */,
 				ED36A9E318F8707B001247AB /* DBZ_PresentView.xib */,
+				B391DB991925CABD00634BA7 /* DBZ_InstructionView.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -209,15 +212,6 @@
 				ED36A9EA18F870A0001247AB /* DBZ_SlideControl.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		ED36A9EF18F8773D001247AB /* Scripts */ = {
-			isa = PBXGroup;
-			children = (
-				ED36A9F018F8775B001247AB /* left.scpt */,
-				ED36A9F118F8775B001247AB /* right.scpt */,
-			);
-			name = Scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,9 +263,10 @@
 				ORGANIZATIONNAME = "DBZ Technology";
 				TargetAttributes = {
 					ED36A9A418F8702F001247AB = {
+						DevelopmentTeam = 93C4626635;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -304,13 +299,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED36A9F318F8775B001247AB /* right.scpt in Resources */,
 				ED36A9B318F8702F001247AB /* InfoPlist.strings in Resources */,
 				ED36A9C118F8702F001247AB /* Images.xcassets in Resources */,
 				ED36A9E018F8706A001247AB /* DBZ_ConnectView.xib in Resources */,
+				B391DB9B1925CABD00634BA7 /* DBZ_InstructionView.xib in Resources */,
 				ED36A9B918F8702F001247AB /* Credits.rtf in Resources */,
 				ED36A9BF18F8702F001247AB /* MainMenu.xib in Resources */,
-				ED36A9F218F8775B001247AB /* left.scpt in Resources */,
 				ED36A9E518F8707B001247AB /* DBZ_PresentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,6 +328,7 @@
 				ED36A9DF18F8706A001247AB /* DBZ_ConnectView.m in Sources */,
 				ED36A9BC18F8702F001247AB /* DBZ_AppDelegate.m in Sources */,
 				ED36A9E418F8707B001247AB /* DBZ_PresentView.m in Sources */,
+				B391DB9A1925CABD00634BA7 /* DBZ_InstructionView.m in Sources */,
 				ED36A9EB18F870A0001247AB /* DBZ_SlideControl.m in Sources */,
 				ED36A9E818F87093001247AB /* DBZ_ServerCommunication.m in Sources */,
 			);
@@ -467,7 +462,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = "Universal Presenter Remote/Universal Presenter Remote.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Universal Presenter Remote/Universal Presenter Remote-Prefix.pch";
@@ -482,7 +478,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_ENTITLEMENTS = "Universal Presenter Remote/Universal Presenter Remote.entitlements";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Universal Presenter Remote/Universal Presenter Remote-Prefix.pch";

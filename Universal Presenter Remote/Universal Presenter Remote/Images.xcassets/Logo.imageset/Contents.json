@@ -3,12 +3,12 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "UPR-White-1.png"
+      "filename" : "Android-AppIcon-512.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "UPR-White.png"
+      "filename" : "Android-AppIcon-512@2x.png"
     }
   ],
   "info" : {
