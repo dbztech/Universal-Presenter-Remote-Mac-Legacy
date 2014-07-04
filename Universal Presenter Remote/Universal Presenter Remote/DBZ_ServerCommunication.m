@@ -11,7 +11,7 @@
 
 @implementation DBZ_ServerCommunication
 
-static NSString *serverAddress = @"http://upr.dbztech.com";
+static NSString *serverAddress = @"http://universalpresenterremote.azurewebsites.net";
 static int uid = 10;
 static int temptoken = 10;
 static int controlmode = 0;
