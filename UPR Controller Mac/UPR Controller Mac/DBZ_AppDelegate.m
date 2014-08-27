@@ -7,17 +7,17 @@
 //
 
 #import "DBZ_AppDelegate.h"
-#import "DBZ_ConnectView.h"
-#import "DBZ_PresentView.h"
-#import "DBZ_InstructionView.h"
+//#import "DBZ_ConnectView.h"
+//#import "DBZ_PresentView.h"
+//#import "DBZ_InstructionView.h"
 #import "DBZ_ServerCommunication.h"
 #import "DBZ_SlideControl.h"
 
 @implementation DBZ_AppDelegate
 
-DBZ_PresentView *presentWindow;
-DBZ_ConnectView *connectWindow;
-DBZ_InstructionView *instructionWindow;
+//DBZ_PresentView *presentWindow;
+//DBZ_ConnectView *connectWindow;
+//DBZ_InstructionView *instructionWindow;
 
 -(void)applicationDidFinishLaunching:(NSNotification *)Notification {
     if ([[NSProcessInfo processInfo] respondsToSelector:@selector(beginActivityWithOptions:reason:)]) {
@@ -35,9 +35,9 @@ DBZ_InstructionView *instructionWindow;
     //NSTimer *checkServerTimer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkServer:) userInfo:nil repeats:YES];
     
     
-    presentWindow = [[DBZ_PresentView alloc] initWithWindowNibName:@"DBZ_PresentView"];
-    connectWindow = [[DBZ_ConnectView alloc] initWithWindowNibName:@"DBZ_ConnectView"];
-    instructionWindow = [[DBZ_InstructionView alloc] initWithWindowNibName:@"DBZ_InstructionView"];
+    //presentWindow = [[DBZ_PresentView alloc] initWithWindowNibName:@"DBZ_PresentView"];
+    //connectWindow = [[DBZ_ConnectView alloc] initWithWindowNibName:@"DBZ_ConnectView"];
+    //instructionWindow = [[DBZ_InstructionView alloc] initWithWindowNibName:@"DBZ_InstructionView"];
     [_token1 becomeFirstResponder];
     // Insert code here to initialize your application
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:NSControlTextDidChangeNotification object:_token1];
@@ -93,11 +93,11 @@ DBZ_InstructionView *instructionWindow;
 
 -(IBAction)connectButton:(id)sender {
     [_window orderOut:self];
-    [connectWindow showWindow:self];
+    //[connectWindow showWindow:self];
 }
 
 - (IBAction)instructionButton:(id)sender {
-    [instructionWindow showWindow:self];
+    //[instructionWindow showWindow:self];
 }
 
 - (IBAction)refresh:(id)sender {
@@ -131,7 +131,7 @@ DBZ_InstructionView *instructionWindow;
 
 -(void)joinSession:(NSNotification *)notification {
     [_window orderOut:self];
-    [presentWindow showWindow:self];
+    //[presentWindow showWindow:self];
 }
 
 - (void)reset:(NSNotification *)notification
