@@ -29,6 +29,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "serverResponse:", name:"ServerResponse", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "alert:", name:"Alert", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateInterface:", name:"UpdateInterface", object: nil)
         
         tokenFieldObjects = [token1, token2, token3, token4, token5, token6]
         
@@ -47,9 +48,15 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func connectButton(sender: AnyObject) {
-        var presentToken = token1.stringValue+token2.stringValue+token3.stringValue+token4.stringValue+token5.stringValue+token6.stringValue
-        let pt = presentToken.toInt()
-        DBZ_ServerCommunication.joinSession(pt!)
+        if DBZ_ServerCommunication.enabled() {
+            DBZ_ServerCommunication.setEnabled(false)
+        } else {
+            var presentToken = token1.stringValue+token2.stringValue+token3.stringValue+token4.stringValue+token5.stringValue+token6.stringValue
+            let pt = presentToken.toInt()
+            DBZ_ServerCommunication.joinSession(pt!)
+            connectButton.title = "Connecting..."
+            connectButton.enabled = false
+        }
     }
     
     override func controlTextDidChange(obj: NSNotification!) {
@@ -94,7 +101,17 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         alert.messageText = incoming.objectAtIndex(0) as NSString
         alert.informativeText = incoming.objectAtIndex(1) as NSString
         alert.runModal()
+        DBZ_ServerCommunication.updateInterface()
         
+    }
+    
+    func updateInterface(notification: NSNotification) {
+        if DBZ_ServerCommunication.enabled() {
+            connectButton.title = "Disconnect"
+        } else {
+            connectButton.title = "Connect"
+        }
+        connectButton.enabled = true
     }
 
 }

@@ -34,6 +34,7 @@ static NSTimer *activeTimer;
         [DBZ_ServerCommunication getResponse:@"ActiveSession" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
     }
     enabled = changeto;
+    [self updateInterface];
 }
 
 +(void)getResponse:(NSString*)page withToken:(NSInteger)requestToken withHoldfor:(bool)holdfor {
@@ -166,9 +167,10 @@ static NSTimer *activeTimer;
 
 +(void)joinSessionCallback:(NSString *)response {
     if ([response integerValue] > 0) {
+        uid = [response intValue];
+        [self setEnabled:YES];
         NSNotification* notification = [NSNotification notificationWithName:@"JoinSession" object:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
-        uid = [response intValue];
     } else {
         NSMutableArray *notify = [NSMutableArray arrayWithObjects:@"Whoops...", @"We couldn't find the token you entered. Please try again or refresh your token.", nil];
         NSNotification* notification = [NSNotification notificationWithName:@"Alert" object:notify];
