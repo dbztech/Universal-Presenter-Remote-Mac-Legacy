@@ -15,12 +15,12 @@
 +(int)uid;
 +(int)temptoken;
 +(int)controlmode;
-+(int)token;
++(NSInteger)token;
 +(bool)serverAvailable;
 +(bool)enabled;
 +(void)setEnabled:(bool)changeto;
 
-+(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor;
++(void)getResponse:(NSString*)page withToken:(NSInteger)requestToken withHoldfor:(bool)holdfor;
 +(void)processResponse:(NSMutableArray*)webResponse;
 +(void)setupUid;
 +(void)checkStatus;
@@ -29,7 +29,7 @@
 +(void)checkTokenCallback:(NSString*)response;
 +(void)newTokenCallback:(NSString*)response;
 +(void)updateInterface;
-+(void)joinSession:(int)sendtoken;
++(void)joinSession:(NSInteger)sendtoken;
 +(void)joinSessionCallback:(NSString*)response;
 +(void)activeSessionCallback:(NSString*)response;
 +(void)checkSlide:(NSTimer *)timer;

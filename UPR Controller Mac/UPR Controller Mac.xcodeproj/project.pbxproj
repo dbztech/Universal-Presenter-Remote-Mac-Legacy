@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3B9FD0919AEC05500FAABD4 /* UPR_Controller_Mac-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UPR_Controller_Mac-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3D9A99C19AD86D2005DE28C /* UPR Controller Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPR Controller Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D9A9A019AD86D2005DE28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3D9A9A119AD86D2005DE28C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		B3D9A99319AD86D2005DE28C = {
 			isa = PBXGroup;
 			children = (
+				B3B9FD0919AEC05500FAABD4 /* UPR_Controller_Mac-Bridging-Header.h */,
 				B3D9A99E19AD86D2005DE28C /* UPR Controller Mac */,
 				B3D9A9B319AD86D2005DE28C /* UPR Controller MacTests */,
 				B3D9A99D19AD86D2005DE28C /* Products */,
@@ -365,10 +367,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "UPR Controller Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UPR_Controller_Mac-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -378,10 +382,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "UPR Controller Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UPR_Controller_Mac-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -440,6 +446,7 @@
 				B3D9A9BC19AD86D2005DE28C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3D9A9BD19AD86D2005DE28C /* Build configuration list for PBXNativeTarget "UPR Controller MacTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +455,7 @@
 				B3D9A9BF19AD86D2005DE28C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

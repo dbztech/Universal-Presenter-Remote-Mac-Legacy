@@ -15,7 +15,7 @@ static NSString *serverAddress = @"http://universalpresenterremote.azurewebsites
 static int uid = 10;
 static int temptoken = 10;
 static int controlmode = 0;
-static int token = 0;
+static NSInteger token = 0;
 static bool serverAvailable = NO;
 static bool enabled = NO;
 static NSTimer *timer;
@@ -25,7 +25,7 @@ static NSTimer *activeTimer;
 +(int)uid { return  uid; }
 +(int)temptoken { return  temptoken; }
 +(int)controlmode { return  controlmode; }
-+(int)token { return  token; }
++(NSInteger)token { return  token; }
 +(bool)serverAvailable { return  serverAvailable; }
 +(bool)enabled { return  enabled; }
 
@@ -36,11 +36,11 @@ static NSTimer *activeTimer;
     enabled = changeto;
 }
 
-+(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor {
++(void)getResponse:(NSString*)page withToken:(NSInteger)requestToken withHoldfor:(bool)holdfor {
     __block NSString *result;
     NSString *strURL= [NSString stringWithFormat:@"%@/%@", serverAddress, page];
     if (requestToken > 99999) {
-        strURL = [NSString stringWithFormat:@"%@?token=%d", strURL, requestToken];
+        strURL = [NSString stringWithFormat:@"%@?token=%ld", strURL, (long)requestToken];
     }
     
     if (holdfor) {
@@ -159,7 +159,7 @@ static NSTimer *activeTimer;
     [[NSNotificationCenter defaultCenter] postNotification:notification];
 }
 
-+(void)joinSession:(int)sendtoken {
++(void)joinSession:(NSInteger)sendtoken {
     token = sendtoken;
     [self getResponse:@"JoinSession" withToken:sendtoken withHoldfor:NO];
 }
@@ -170,9 +170,9 @@ static NSTimer *activeTimer;
         [[NSNotificationCenter defaultCenter] postNotification:notification];
         uid = [response intValue];
     } else {
-        //NSAlert *alert = [[NSAlert alloc] init];
-        //[alert setMessageText:@"The token you entered was invalid, please try again"];
-        //[alert runModal];
+        NSMutableArray *notify = [NSMutableArray arrayWithObjects:@"Whoops...", @"We couldn't find the token you entered. Please try again or refresh your token.", nil];
+        NSNotification* notification = [NSNotification notificationWithName:@"Alert" object:notify];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 }
 
@@ -187,9 +187,9 @@ static NSTimer *activeTimer;
             [activeTimer invalidate];
         }
     } else {
-        //NSAlert *alert = [[NSAlert alloc] init];
-        //[alert setMessageText:@"Server error! Please restart your application and check your internet connection"];
-        //[alert runModal];
+        NSMutableArray *notify = [NSMutableArray arrayWithObjects:@"Whoops...", @"There was an issue talking to UPR Cloud. Please restart the application and check your internet connection.", nil];
+        NSNotification* notification = [NSNotification notificationWithName:@"Alert" object:notify];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
     }
 }
 

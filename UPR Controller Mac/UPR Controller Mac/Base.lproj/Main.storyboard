@@ -654,7 +654,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="350" height="500"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1440"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <view key="contentView" id="O92-4t-NeX">
                             <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                             <autoresizingMask key="autoresizingMask"/>
@@ -676,16 +676,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-pR-3cQ">
+                                <rect key="frame" x="97" y="335" width="156" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="o0e-cj-Sv0"/>
+                                    <constraint firstAttribute="height" constant="156" id="y1n-vf-qZX"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="nSC-Nz-gL9"/>
+                            </imageView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="XlM-ZC-rXl">
                                 <rect key="frame" x="13" y="16" width="324" height="306"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="QR Code" identifier="1" id="uN7-uI-gnZ">
-                                        <view key="view" id="Dph-tR-HTz">
-                                            <rect key="frame" x="10" y="33" width="304" height="260"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                    </tabViewItem>
                                     <tabViewItem label="Text Code" identifier="2" id="ohM-RQ-E1M">
                                         <view key="view" id="ncU-4K-8QS">
                                             <rect key="frame" x="10" y="33" width="304" height="260"/>
@@ -830,6 +832,12 @@
                                             </constraints>
                                         </view>
                                     </tabViewItem>
+                                    <tabViewItem label="QR Code" identifier="1" id="uN7-uI-gnZ">
+                                        <view key="view" id="Dph-tR-HTz">
+                                            <rect key="frame" x="10" y="33" width="304" height="260"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                    </tabViewItem>
                                     <tabViewItem label="Instructions" identifier="" id="PCV-IA-jZK">
                                         <view key="view" id="Dgs-iM-XfK">
                                             <rect key="frame" x="10" y="33" width="304" height="260"/>
@@ -842,13 +850,13 @@
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="hSb-Mn-soE">
-                                                                <rect key="frame" x="0.0" y="0.0" width="234" height="133"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="234" height="238"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <size key="minSize" width="253" height="238"/>
+                                                                <size key="minSize" width="268" height="238"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="253" height="238"/>
+                                                                <size key="minSize" width="268" height="238"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                             </textView>
                                                         </subviews>
@@ -874,21 +882,13 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-pR-3cQ">
-                                <rect key="frame" x="97" y="324" width="156" height="156"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="156" id="o0e-cj-Sv0"/>
-                                    <constraint firstAttribute="height" constant="156" id="y1n-vf-qZX"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="nSC-Nz-gL9"/>
-                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="cFO-pR-3cQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="85V-3V-N6H"/>
+                            <constraint firstItem="cFO-pR-3cQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="9" id="85V-3V-N6H"/>
                             <constraint firstAttribute="trailing" secondItem="XlM-ZC-rXl" secondAttribute="trailing" constant="20" symbolic="YES" id="Bcq-lg-1HJ"/>
                             <constraint firstItem="XlM-ZC-rXl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="MOc-JG-rtZ"/>
                             <constraint firstItem="cFO-pR-3cQ" firstAttribute="centerX" secondItem="XlM-ZC-rXl" secondAttribute="centerX" id="MSJ-fg-Ovi"/>
-                            <constraint firstItem="XlM-ZC-rXl" firstAttribute="top" secondItem="cFO-pR-3cQ" secondAttribute="bottom" constant="8" symbolic="YES" id="N0H-cw-1KN"/>
+                            <constraint firstItem="XlM-ZC-rXl" firstAttribute="top" secondItem="cFO-pR-3cQ" secondAttribute="bottom" constant="19" id="N0H-cw-1KN"/>
                             <constraint firstAttribute="bottom" secondItem="XlM-ZC-rXl" secondAttribute="bottom" constant="26" id="X6U-PD-Mo2"/>
                         </constraints>
                     </view>

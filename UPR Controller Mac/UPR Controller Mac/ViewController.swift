@@ -20,13 +20,22 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var connectButton: NSButton!
     
     var tokenFields: [String] = ["","","","","",""]
-    
+    var tokenFieldObjects: [NSTextField] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-                                    
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "serverResponse:", name:"ServerResponse", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "alert:", name:"Alert", object: nil)
+        
+        tokenFieldObjects = [token1, token2, token3, token4, token5, token6]
+        
+        DBZ_ServerCommunication.setupUid()
+        
+        token1.becomeFirstResponder()
+        
     }
 
     override var representedObject: AnyObject? {
@@ -38,34 +47,53 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func connectButton(sender: AnyObject) {
+        var presentToken = token1.stringValue+token2.stringValue+token3.stringValue+token4.stringValue+token5.stringValue+token6.stringValue
+        let pt = presentToken.toInt()
+        DBZ_ServerCommunication.joinSession(pt!)
     }
     
     override func controlTextDidChange(obj: NSNotification!) {
-        if token1.stringValue != tokenFields[0] {
-            token2.becomeFirstResponder()
-        }
-        if token2.stringValue != tokenFields[1] {
-            token3.becomeFirstResponder()
-        }
-        if token3.stringValue != tokenFields[2] {
-            token4.becomeFirstResponder()
-        }
-        if token4.stringValue != tokenFields[3] {
-            token5.becomeFirstResponder()
-        }
-        if token5.stringValue != tokenFields[4] {
-            token6.becomeFirstResponder()
-        }
-        if token6.stringValue != tokenFields[5] {
-            token6.resignFirstResponder()
+        
+        for (index, value) in enumerate(tokenFieldObjects) {
+            if value.stringValue != tokenFields[index] {
+                if index < 5 {
+                    tokenFieldObjects[index + 1].becomeFirstResponder()
+                } else {
+                    token1.becomeFirstResponder()
+                }
+                
+            }
+            
+            tokenFields[index] = value.stringValue
         }
         
-        tokenFields[0] = token1.stringValue;
-        tokenFields[1] = token2.stringValue;
-        tokenFields[2] = token3.stringValue;
-        tokenFields[3] = token4.stringValue;
-        tokenFields[4] = token5.stringValue;
-        tokenFields[5] = token6.stringValue;
+        validateToken()
+        
+    }
+    
+    func validateToken() {
+        var fieldsReady = 0;
+        for (index, value) in enumerate(tokenFieldObjects) {
+            if (String(value.integerValue) == value.stringValue) {
+                fieldsReady++
+            }
+        }
+        if fieldsReady == 6 {
+            connectButton.enabled = true
+        }
+    }
+    
+    func serverResponse(notification: NSNotification) {
+        var incoming: NSMutableArray! = notification.object as NSMutableArray
+        DBZ_ServerCommunication.processResponse(incoming)
+    }
+    
+    func alert(notification: NSNotification) {
+        var incoming: NSMutableArray! = notification.object as NSMutableArray
+        let alert:NSAlert = NSAlert()
+        alert.messageText = incoming.objectAtIndex(0) as NSString
+        alert.informativeText = incoming.objectAtIndex(1) as NSString
+        alert.runModal()
         
     }
 
