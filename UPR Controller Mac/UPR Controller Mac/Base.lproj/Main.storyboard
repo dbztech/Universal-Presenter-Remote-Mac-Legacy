@@ -646,11 +646,11 @@
             </objects>
             <point key="canvasLocation" x="530" y="-11"/>
         </scene>
-        <!--Window-->
+        <!--UPR Controller Mac-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="UPR Controller Mac" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA" userLabel="UPR Controller Mac">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="350" height="500"/>
@@ -676,14 +676,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="350" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-pR-3cQ">
-                                <rect key="frame" x="97" y="335" width="156" height="156"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="156" id="o0e-cj-Sv0"/>
-                                    <constraint firstAttribute="height" constant="156" id="y1n-vf-qZX"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="nSC-Nz-gL9"/>
-                            </imageView>
                             <tabView translatesAutoresizingMaskIntoConstraints="NO" id="XlM-ZC-rXl">
                                 <rect key="frame" x="13" y="16" width="324" height="306"/>
                                 <font key="font" metaFont="system"/>
@@ -882,6 +874,24 @@
                                     </tabViewItem>
                                 </tabViewItems>
                             </tabView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cFO-pR-3cQ">
+                                <rect key="frame" x="97" y="335" width="156" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="156" id="o0e-cj-Sv0"/>
+                                    <constraint firstAttribute="height" constant="156" id="y1n-vf-qZX"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="nSC-Nz-gL9"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09r-sa-zeU">
+                                <rect key="frame" x="248" y="385" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oDn-wL-YCf">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="1QS-fm-nOM" id="pu7-U0-NXt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cFO-pR-3cQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="9" id="85V-3V-N6H"/>
@@ -904,6 +914,7 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="1QS-fm-nOM" customClass="SUUpdater"/>
             </objects>
             <point key="canvasLocation" x="75" y="927"/>
         </scene>
