@@ -22,6 +22,12 @@
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Check for Updates..." id="vhm-i9-913">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="checkForUpdates:" target="1QS-fm-nOM" id="11q-VI-UOg"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -642,7 +648,9 @@
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="UPR_Controller_Mac" customModuleProvider="target"/>
+                <customObject id="1QS-fm-nOM" customClass="SUUpdater"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="itV-P3-GUh"/>
             </objects>
             <point key="canvasLocation" x="530" y="-11"/>
         </scene>
@@ -882,16 +890,6 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Logo" id="nSC-Nz-gL9"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09r-sa-zeU">
-                                <rect key="frame" x="248" y="385" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oDn-wL-YCf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="checkForUpdates:" target="1QS-fm-nOM" id="pu7-U0-NXt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cFO-pR-3cQ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="9" id="85V-3V-N6H"/>
@@ -914,7 +912,6 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customObject id="1QS-fm-nOM" customClass="SUUpdater"/>
             </objects>
             <point key="canvasLocation" x="75" y="927"/>
         </scene>
