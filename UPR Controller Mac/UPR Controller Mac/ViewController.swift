@@ -50,6 +50,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func connectButton(sender: AnyObject) {
         if DBZ_ServerCommunication.enabled() {
             DBZ_ServerCommunication.setEnabled(false)
+            reset()
         } else {
             var presentToken = token1.stringValue+token2.stringValue+token3.stringValue+token4.stringValue+token5.stringValue+token6.stringValue
             let pt = presentToken.toInt()
@@ -102,6 +103,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         alert.informativeText = incoming.objectAtIndex(1) as NSString
         alert.runModal()
         DBZ_ServerCommunication.updateInterface()
+        reset()
         
     }
     
@@ -112,6 +114,16 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             connectButton.title = "Connect"
         }
         connectButton.enabled = true
+    }
+    
+    func reset() {
+        token1.stringValue = ""
+        token2.stringValue = ""
+        token3.stringValue = ""
+        token4.stringValue = ""
+        token5.stringValue = ""
+        token6.stringValue = ""
+        token1.becomeFirstResponder()
     }
 
 }
