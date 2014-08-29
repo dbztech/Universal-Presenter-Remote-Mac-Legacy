@@ -15,7 +15,6 @@
 		B3D9A9A819AD86D2005DE28C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3D9A9A719AD86D2005DE28C /* Images.xcassets */; };
 		B3D9A9AB19AD86D2005DE28C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3D9A9A919AD86D2005DE28C /* Main.storyboard */; };
 		B3D9A9B719AD86D2005DE28C /* UPR_Controller_MacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9B619AD86D2005DE28C /* UPR_Controller_MacTests.swift */; };
-		B3D9A9CE19AD94CE005DE28C /* DBZ_AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9CD19AD94CE005DE28C /* DBZ_AppDelegate.m */; };
 		B3D9A9D319AD9571005DE28C /* DBZ_ServerCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9D019AD9571005DE28C /* DBZ_ServerCommunication.m */; };
 		B3D9A9D419AD9571005DE28C /* DBZ_SlideControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9D219AD9571005DE28C /* DBZ_SlideControl.m */; };
 /* End PBXBuildFile section */
@@ -57,8 +56,6 @@
 		B3D9A9B019AD86D2005DE28C /* UPR Controller MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UPR Controller MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D9A9B519AD86D2005DE28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3D9A9B619AD86D2005DE28C /* UPR_Controller_MacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPR_Controller_MacTests.swift; sourceTree = "<group>"; };
-		B3D9A9CC19AD94CE005DE28C /* DBZ_AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_AppDelegate.h; sourceTree = "<group>"; };
-		B3D9A9CD19AD94CE005DE28C /* DBZ_AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_AppDelegate.m; sourceTree = "<group>"; };
 		B3D9A9CF19AD9571005DE28C /* DBZ_ServerCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_ServerCommunication.h; sourceTree = "<group>"; };
 		B3D9A9D019AD9571005DE28C /* DBZ_ServerCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBZ_ServerCommunication.m; sourceTree = "<group>"; };
 		B3D9A9D119AD9571005DE28C /* DBZ_SlideControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBZ_SlideControl.h; sourceTree = "<group>"; };
@@ -158,8 +155,6 @@
 		B3D9A9CB19AD94A9005DE28C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B3D9A9CC19AD94CE005DE28C /* DBZ_AppDelegate.h */,
-				B3D9A9CD19AD94CE005DE28C /* DBZ_AppDelegate.m */,
 				B3D9A9A319AD86D2005DE28C /* ViewController.swift */,
 			);
 			name = "View Controllers";
@@ -274,7 +269,6 @@
 				B3D9A9A619AD86D2005DE28C /* AppDelegate.swift in Sources */,
 				B3D9A9A419AD86D2005DE28C /* ViewController.swift in Sources */,
 				B3D9A9A219AD86D2005DE28C /* main.swift in Sources */,
-				B3D9A9CE19AD94CE005DE28C /* DBZ_AppDelegate.m in Sources */,
 				B3D9A9D419AD9571005DE28C /* DBZ_SlideControl.m in Sources */,
 				B3D9A9D319AD9571005DE28C /* DBZ_ServerCommunication.m in Sources */,
 			);

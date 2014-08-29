@@ -35,6 +35,7 @@
 - (void)updateInterface:(NSNotification*)notification;
 - (void)joinSession:(NSNotification*)notification;
 - (void)reset:(NSNotification *)notification;
+- (void)refreshInterface:(NSNotification*)notification;
 
 
 
