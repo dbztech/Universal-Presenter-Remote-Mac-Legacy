@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3111CFA19AFEDB3001F7F02 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3111CF919AFEDB3001F7F02 /* Sparkle.framework */; };
-		B3111CFC19AFEDEB001F7F02 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3111CF919AFEDB3001F7F02 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B3D2056F19B13F6D001F2A19 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3D2056E19B13F6D001F2A19 /* Sparkle.framework */; };
+		B3D2057019B13F71001F2A19 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B3D2056E19B13F6D001F2A19 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3D9A9A219AD86D2005DE28C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9A119AD86D2005DE28C /* main.swift */; };
 		B3D9A9A419AD86D2005DE28C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9A319AD86D2005DE28C /* ViewController.swift */; };
 		B3D9A9A619AD86D2005DE28C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9A519AD86D2005DE28C /* AppDelegate.swift */; };
@@ -36,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B3111CFC19AFEDEB001F7F02 /* Sparkle.framework in CopyFiles */,
+				B3D2057019B13F71001F2A19 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,8 +44,8 @@
 
 /* Begin PBXFileReference section */
 		B3111CF819AFEB8D001F7F02 /* UPR Controller Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "UPR Controller Mac.entitlements"; sourceTree = "<group>"; };
-		B3111CF919AFEDB3001F7F02 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		B3B9FD0919AEC05500FAABD4 /* UPR_Controller_Mac-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UPR_Controller_Mac-Bridging-Header.h"; sourceTree = "<group>"; };
+		B3D2056E19B13F6D001F2A19 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		B3D9A99C19AD86D2005DE28C /* UPR Controller Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPR Controller Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D9A9A019AD86D2005DE28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3D9A9A119AD86D2005DE28C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3111CFA19AFEDB3001F7F02 /* Sparkle.framework in Frameworks */,
+				B3D2056F19B13F6D001F2A19 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 		B3D9A99F19AD86D2005DE28C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B3111CF919AFEDB3001F7F02 /* Sparkle.framework */,
+				B3D2056E19B13F6D001F2A19 /* Sparkle.framework */,
 				B3D9A9A019AD86D2005DE28C /* Info.plist */,
 				B3D9A9A119AD86D2005DE28C /* main.swift */,
 			);
@@ -394,6 +394,9 @@
 					"$(PROJECT_DIR)/UPR",
 					Controller,
 					Mac,
+					"$(PROJECT_DIR)/UPR",
+					Controller,
+					Mac,
 				);
 				INFOPLIST_FILE = "UPR Controller Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -413,6 +416,9 @@
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/UPR",
+					Controller,
+					Mac,
 					"$(PROJECT_DIR)/UPR",
 					Controller,
 					Mac,
