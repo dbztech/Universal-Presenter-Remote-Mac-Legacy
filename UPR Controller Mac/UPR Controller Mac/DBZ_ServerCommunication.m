@@ -20,6 +20,7 @@ static bool serverAvailable = NO;
 static bool enabled = NO;
 static NSTimer *timer;
 static NSTimer *activeTimer;
+static int errorCount = 0;
 
 +(NSString*)serverAddress { return  serverAddress; }
 +(int)uid { return  uid; }
@@ -180,6 +181,7 @@ static NSTimer *activeTimer;
 
 +(void)activeSessionCallback:(NSString *)response {
     if ([response integerValue] > 0) {
+        errorCount = 0;
         NSNotification* notification = [NSNotification notificationWithName:@"ChangeSlide" object:nil];
         [[NSNotificationCenter defaultCenter] postNotification:notification];
         [DBZ_SlideControl setSlide:[response intValue]];
@@ -189,9 +191,16 @@ static NSTimer *activeTimer;
             [activeTimer invalidate];
         }
     } else {
-        NSMutableArray *notify = [NSMutableArray arrayWithObjects:@"Whoops...", @"There was an issue talking to UPR Cloud. Please restart the application and check your internet connection.", nil];
-        NSNotification* notification = [NSNotification notificationWithName:@"Alert" object:notify];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        errorCount++;
+        if (errorCount > 3) {
+            NSMutableArray *notify = [NSMutableArray arrayWithObjects:@"Whoops...", @"There was an issue talking to UPR Cloud. Please restart the application and check your internet connection.", nil];
+            NSNotification* notification = [NSNotification notificationWithName:@"Alert" object:notify];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];
+        } else {
+            activeTimer = [NSTimer scheduledTimerWithTimeInterval:0.75 target:self selector:@selector(checkSlide:) userInfo:nil repeats:NO];
+        }
+        
+        
     }
 }
 

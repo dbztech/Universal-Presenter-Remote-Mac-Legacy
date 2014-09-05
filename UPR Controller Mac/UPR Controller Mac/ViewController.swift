@@ -123,6 +123,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         token4.stringValue = ""
         token5.stringValue = ""
         token6.stringValue = ""
+        tokenFields = ["","","","","",""]
         token1.becomeFirstResponder()
     }
 
