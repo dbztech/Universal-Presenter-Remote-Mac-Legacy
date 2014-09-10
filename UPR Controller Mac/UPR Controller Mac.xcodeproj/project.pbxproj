@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B380F6C419BA4AAD00DCD2FB /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B380F6C319BA4AAD00DCD2FB /* Sparkle.framework */; };
-		B380F6C519BA4AB100DCD2FB /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B380F6C319BA4AAD00DCD2FB /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B35335CF19BE5769007A1643 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35335CE19BE5769007A1643 /* Sparkle.framework */; };
+		B35335D019BE5775007A1643 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B35335CE19BE5769007A1643 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3D9A9A219AD86D2005DE28C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9A119AD86D2005DE28C /* main.swift */; };
 		B3D9A9A419AD86D2005DE28C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9A319AD86D2005DE28C /* ViewController.swift */; };
 		B3D9A9A619AD86D2005DE28C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D9A9A519AD86D2005DE28C /* AppDelegate.swift */; };
@@ -36,15 +36,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B380F6C519BA4AB100DCD2FB /* Sparkle.framework in CopyFiles */,
+				B35335D019BE5775007A1643 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B35335CE19BE5769007A1643 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		B362CD9D19B8E83A00AED622 /* UPR Controller Mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "UPR Controller Mac.entitlements"; sourceTree = "<group>"; };
-		B380F6C319BA4AAD00DCD2FB /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		B3B9FD0919AEC05500FAABD4 /* UPR_Controller_Mac-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UPR_Controller_Mac-Bridging-Header.h"; sourceTree = "<group>"; };
 		B3D9A99C19AD86D2005DE28C /* UPR Controller Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UPR Controller Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3D9A9A019AD86D2005DE28C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B380F6C419BA4AAD00DCD2FB /* Sparkle.framework in Frameworks */,
+				B35335CF19BE5769007A1643 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 		B3D9A99F19AD86D2005DE28C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B380F6C319BA4AAD00DCD2FB /* Sparkle.framework */,
+				B35335CE19BE5769007A1643 /* Sparkle.framework */,
 				B3D9A9A019AD86D2005DE28C /* Info.plist */,
 				B3D9A9A119AD86D2005DE28C /* main.swift */,
 			);
@@ -385,41 +385,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "UPR Controller Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -434,41 +405,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
-					"$(PROJECT_DIR)/UPR",
-					Controller,
-					Mac,
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "UPR Controller Mac/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
