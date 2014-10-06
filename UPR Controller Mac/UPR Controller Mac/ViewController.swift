@@ -60,7 +60,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         }
     }
     
-    override func controlTextDidChange(obj: NSNotification!) {
+    override func controlTextDidChange(obj: NSNotification) {
         
         for (index, value) in enumerate(tokenFieldObjects) {
             if value.stringValue != tokenFields[index] {
