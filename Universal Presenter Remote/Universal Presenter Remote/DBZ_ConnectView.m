@@ -33,15 +33,15 @@
 }
 
 - (IBAction)leftButton:(id)sender {
-    [DBZ_ServerCommunication getResponse:@"SlideDown" withToken:[DBZ_ServerCommunication token] withHoldfor:YES withDeviceToken:NO];
+    [DBZ_ServerCommunication getResponse:@"SlideDown" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 
 - (IBAction)rightButton:(id)sender {
-    [DBZ_ServerCommunication getResponse:@"SlideUp" withToken:[DBZ_ServerCommunication token] withHoldfor:YES withDeviceToken:NO];
+    [DBZ_ServerCommunication getResponse:@"SlideUp" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 
 - (IBAction)mediaButton:(id)sender {
-    [DBZ_ServerCommunication getResponse:@"PlayMedia" withToken:[DBZ_ServerCommunication token] withHoldfor:YES withDeviceToken:NO];
+    [DBZ_ServerCommunication getResponse:@"PlayMedia" withToken:[DBZ_ServerCommunication token] withHoldfor:YES];
 }
 
 - (void)windowWillClose:(NSNotification *)notification

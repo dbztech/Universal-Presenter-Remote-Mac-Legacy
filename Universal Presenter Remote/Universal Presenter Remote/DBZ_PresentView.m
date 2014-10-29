@@ -44,10 +44,10 @@
 - (IBAction)connectButton:(id)sender {
     if ([DBZ_ServerCommunication enabled]) {
         _connectButton.title = @"Resume";
-        //[DBZ_ServerCommunication setEnabled:NO];
+        [DBZ_ServerCommunication setEnabled:NO];
     } else {
         _connectButton.title = @"Pause";
-        //[DBZ_ServerCommunication setEnabled:YES];
+        [DBZ_ServerCommunication setEnabled:YES];
     }
     
 }

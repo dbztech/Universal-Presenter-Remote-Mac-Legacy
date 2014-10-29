@@ -27,7 +27,6 @@
 - (IBAction)presentButton:(id)sender;
 - (IBAction)connectButton:(id)sender;
 - (IBAction)instructionButton:(id)sender;
-- (IBAction)refresh:(id)sender;
 
 - (void)textViewDidChange:(NSNotification*)notification;
 - (void)validate;
@@ -35,7 +34,6 @@
 - (void)updateInterface:(NSNotification*)notification;
 - (void)joinSession:(NSNotification*)notification;
 - (void)reset:(NSNotification *)notification;
-- (void)refreshInterface:(NSNotification*)notification;
 
 
 

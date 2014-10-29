@@ -18,17 +18,21 @@
 +(int)token;
 +(bool)serverAvailable;
 +(bool)enabled;
++(void)setEnabled:(bool)changeto;
 
-+(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor withDeviceToken:(bool)devicetoken;
++(void)getResponse:(NSString*)page withToken:(int)requestToken withHoldfor:(bool)holdfor;
 +(void)processResponse:(NSMutableArray*)webResponse;
 +(void)setupUid;
 +(void)checkStatus;
 +(void)checkStatusCallback:(NSString*)response;
-+(void)checkToken;
++(void)checkToken:(NSTimer *)timer;
 +(void)checkTokenCallback:(NSString*)response;
 +(void)newTokenCallback:(NSString*)response;
 +(void)updateInterface;
++(void)joinSession:(int)sendtoken;
++(void)joinSessionCallback:(NSString*)response;
++(void)activeSessionCallback:(NSString*)response;
++(void)checkSlide:(NSTimer *)timer;
 +(void)connectSetup;
-+(void)setupApns:(NSString*)deviceToken;
 
 @end
